@@ -6,20 +6,32 @@
 // Inside included HTML use {{ buttonText | Default text }} tokens.
 
 const aliases = {
-  "@components/": "/components/",
-  "@layout/": "/components/layout/",
-  "@ui/": "/components/ui/",
-  "@sections/": "/components/sections/",
-  "@partials/": "/components/partials/",
-  "@forms/": "/components/forms/",
-  "@modals/": "/components/modals/",
+  "@components/": "components/",
+  "@layout/": "components/layout/",
+  "@ui/": "components/ui/",
+  "@sections/": "components/sections/",
+  "@partials/": "components/partials/",
+  "@forms/": "components/forms/",
+  "@modals/": "components/modals/",
 };
 
+// Base URL of the project (directory where include.js lives)
+const INCLUDE_BASE = new URL('.', import.meta.url);
+
 function resolveAlias(path) {
+  // Absolute HTTP(S) URLs pass through
+  if (/^https?:\/\//.test(path)) return path;
+
+  // Apply alias mapping relative to include.js location
   for (const [key, val] of Object.entries(aliases)) {
-    if (path.startsWith(key)) return path.replace(key, val);
+    if (path.startsWith(key)) {
+      const rest = path.slice(key.length);
+      return new URL(val + rest, INCLUDE_BASE).toString();
+    }
   }
-  return path;
+
+  // Root-relative or relative paths → resolve against include.js base
+  return new URL(path, INCLUDE_BASE).toString();
 }
 
 function htmlEscape(str) {
@@ -111,10 +123,8 @@ export async function include(selector = "[data-include]") {
       let src = el.getAttribute("data-include");
       if (!src) return;
 
-      src = resolveAlias(src);
-      const url = /^https?:\/\//.test(src)
-        ? new URL(src)
-        : new URL(src, location.origin);
+      const resolved = resolveAlias(src);
+      const url = new URL(resolved);
 
       const res = await fetch(url);
       if (!res.ok) throw new Error(`Failed to load ${url}`);
