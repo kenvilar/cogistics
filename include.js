@@ -31,6 +31,29 @@ function htmlEscape(str) {
     .replace(/'/g, "&#39;");
 }
 
+// Parse data-include-params more leniently:
+// - supports trailing commas
+// - ignores // and /* */ comments
+// Falls back to strict JSON if possible.
+function parseIncludeParamsJSON(json) {
+  try {
+    return JSON.parse(json);
+  } catch (_e1) {
+    try {
+      const cleaned = json
+        .replace(/^\uFEFF/, "")
+        .replace(/\/\*[\s\S]*?\*\//g, "")
+        .replace(/\/\/.*$/gm, "")
+        .replace(/,\s*([}\]])/g, "$1")
+        .trim();
+      return JSON.parse(cleaned);
+    } catch (e2) {
+      console.warn("data-include-params is not valid JSON", e2);
+      return null;
+    }
+  }
+}
+
 function gatherParams(el, url) {
   const params = {};
 
@@ -39,15 +62,11 @@ function gatherParams(el, url) {
     for (const [k, v] of url.searchParams.entries()) params[k] = v;
   }
 
-  // 2) From data-include-params (JSON)
+  // 2) From data-include-params (JSON or JSON5-lite)
   const json = el.getAttribute("data-include-params");
   if (json) {
-    try {
-      const obj = JSON.parse(json);
-      if (obj && typeof obj === "object") Object.assign(params, obj);
-    } catch (e) {
-      console.warn("data-include-params is not valid JSON", e);
-    }
+    const obj = parseIncludeParamsJSON(json);
+    if (obj && typeof obj === "object") Object.assign(params, obj);
   }
 
   // 3) From data-include-* attributes (highest precedence)
