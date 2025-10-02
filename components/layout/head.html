@@ -6,6 +6,7 @@
   name="description"
   content="{{ metaDescription | Cogistics — a simple HTML starter with Tailwind CSS and component includes. }}"
 />
+<link rel="stylesheet" href="/assets/css/fonts/fonts.css" />
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.14"></script>
 <style type="text/tailwindcss">
   @theme {
@@ -60,9 +61,11 @@
   @custom-variant sm (@media screen and (max-width: 767px));
   @custom-variant xs (@media screen and (max-width: 479px));
 </style>
-<link rel="stylesheet" href="/assets/css/fonts/fonts.css" />
 <style type="text/tailwindcss">
   @layer base {
+    body {
+      @apply font-primary text-text;
+    }
     h1,
     .h1 {
       @apply text-page-heading text-4xl font-bold;
@@ -89,6 +92,11 @@
     }
     p {
       @apply text-text text-base;
+    }
+    p,
+    small,
+    span {
+      @apply font-secondary;
     }
   }
   .page-wrapper {
