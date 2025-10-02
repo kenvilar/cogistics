@@ -4,7 +4,6 @@
 // <div data-include="@ui/button.html?buttonText=Click%20me"></div>
 // <div data-include="@ui/button.html" data-include-params='{"buttonText":"Click me"}'></div>
 // Inside included HTML use {{ buttonText | Default text }} tokens.
-// Backward compatibility: passing a param named "label" will be mapped to "buttonText".
 
 const aliases = {
   "@components/": "/components/",
