@@ -1,6 +1,6 @@
 @font-face {
 	font-family: "Barlow Semi Condensed";
-	src: url(/wp-content/themes/bridge-child/assets/fonts/barlow-semi-condensed/BarlowSemiCondensed-Medium.ttf) format("truetype");
+	src: url(../../fonts/barlow-semi-condensed/BarlowSemiCondensed-Medium.ttf) format("truetype");
 	font-weight: 500;
 	font-style: normal;
 	font-display: swap;
@@ -8,7 +8,7 @@
 
 @font-face {
 	font-family: "Barlow Semi Condensed";
-	src: url(/wp-content/themes/bridge-child/assets/fonts/barlow-semi-condensed/BarlowSemiCondensed-SemiBold.ttf) format("truetype");
+	src: url(../../fonts/barlow-semi-condensed/BarlowSemiCondensed-SemiBold.ttf) format("truetype");
 	font-weight: 600;
 	font-style: normal;
 	font-display: swap;
@@ -16,7 +16,7 @@
 
 @font-face {
 	font-family: "Barlow Semi Condensed";
-	src: url(/wp-content/themes/bridge-child/assets/fonts/barlow-semi-condensed/BarlowSemiCondensed-Bold.ttf) format("truetype");
+	src: url(../../fonts/barlow-semi-condensed/BarlowSemiCondensed-Bold.ttf) format("truetype");
 	font-weight: 700;
 	font-style: normal;
 	font-display: swap;
@@ -24,7 +24,7 @@
 
 @font-face {
 	font-family: "Roboto";
-	src: url(/wp-content/themes/bridge-child/assets/fonts/roboto/Roboto-VariableFont_wdth,wght.ttf) format("truetype");
+	src: url(../../fonts/roboto/Roboto-VariableFont_wdth,wght.ttf) format("truetype");
 	font-weight: 100 900;
 	font-style: normal;
 	font-display: swap;
