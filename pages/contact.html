@@ -1,6 +1,10 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <script type="module">
+      import { include } from "/include.js";
+      include();
+    </script>
     <template
       data-include="@layout/head.html"
       data-include-params='{
@@ -13,8 +17,8 @@
   <body class="page-contact antialiased">
     <div class="page-wrapper">
       <div data-include="@layout/header.html"></div>
-      <main class="main-wrapper p-6">
-        <h1 class="pb-2 pt-4">Contact</h1>
+      <main class="main-wrapper">
+        <h1 class="text-[20px]">Blog</h1>
         <div data-include="@forms/contact-form.html"></div>
       </main>
     </div>

@@ -122,7 +122,28 @@ export async function include(selector = "[data-include]") {
 
       const params = gatherParams(el, url);
       const rendered = applyTemplate(html, params);
-      el.outerHTML = rendered;
+
+      // Insert as a live DOM fragment and ensure any <script> tags execute
+      const tpl = document.createElement("template");
+      tpl.innerHTML = rendered;
+      const frag = tpl.content;
+
+      // Recreate scripts so browsers execute them when inserted
+      const scripts = Array.from(frag.querySelectorAll("script"));
+      for (const oldScript of scripts) {
+        const newScript = document.createElement("script");
+        // Copy attributes
+        for (const attr of Array.from(oldScript.attributes)) {
+          newScript.setAttribute(attr.name, attr.value);
+        }
+        // Inline code
+        if (oldScript.textContent) newScript.textContent = oldScript.textContent;
+        // Replace in fragment
+        oldScript.parentNode.replaceChild(newScript, oldScript);
+      }
+
+      // Replace host with the fragment (scripts will execute upon insertion)
+      el.replaceWith(frag);
     }),
   );
 }

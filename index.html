@@ -1,6 +1,10 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <script type="module">
+      import { include } from "/include.js";
+      include();
+    </script>
     <template
       data-include="@layout/head.html"
       data-include-params='{
@@ -14,7 +18,7 @@
     <div class="page-wrapper">
       <div data-include="@layout/header.html"></div>
       <div class="main-wrapper">
-        <h1 class="p-6 pt-4">Cogistics</h1>
+        <h1 class="p-[6px] pt-[4px]">Cogistics</h1>
         <div
           data-include="@ui/button.html"
           data-include-params='{
