@@ -11,6 +11,13 @@
   @theme {
     --breakpoint-*: initial;
     --spacing: 1px;
+    /* Font families */
+    --font-sans: "Inter", sans-serif;
+    --font-serif: "Merriweather", serif;
+    --font-mono: "Fira Code", monospace;
+    --font-barlow-semi-condensed: "Barlow Semi Condensed", sans-serif;
+    --font-roboto: "Roboto", sans-serif;
+    /* Typography */
     --text-xs: 13px;
     --text-xs--line-height: 15px;
     --text-sm: 14px;
@@ -31,6 +38,20 @@
     --text-4xl--line-height: 56px;
     --text-5xl: 115px;
     --text-5xl--line-height: 126px;
+    /* Colors */
+    --color-dev: red;
+    --color-primary: #f26739;
+    --color-secondary: var(--color-slate-blue);
+    --color-tertiary: var(--color-lavender-mist);
+    --color-text: var(--color-spanish-gray);
+    --color-section-heading: var(--color-charcoal-gray);
+    --color-page-heading: var(--color-charcoal);
+    --color-lavender-gray: #f0eff5;
+    --color-charcoal-gray: #252525;
+    --color-spanish-gray: #797979;
+    --color-charcoal: #2d2d2d;
+    --color-slate-blue: #423eaf;
+    --color-lavender-mist: #f0eff5;
   }
   @custom-variant lg (@media screen and (max-width: 1279px));
   @custom-variant md (@media screen and (max-width: 991px));
