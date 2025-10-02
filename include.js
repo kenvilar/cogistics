@@ -61,21 +61,29 @@ function gatherParams(el, url) {
     }
   }
 
-  // Backward compat: map "label" to "buttonText" if needed
-  if (params.buttonText == null && params.label != null) {
-    params.buttonText = params.label;
-  }
-
   return params;
 }
 
 function applyTemplate(html, params) {
   // Replace tokens of the form {{ key }} or {{ key | Default }}
-  return html.replace(/\{\{\s*([a-zA-Z0-9_.\-]+)(?:\s*\|\s*([^}]+))?\s*\}\}/g, (_m, key, deflt) => {
-    const val = params.hasOwnProperty(key) ? params[key] : undefined;
-    const out = val != null ? String(val) : deflt != null ? String(deflt) : "";
-    return htmlEscape(out);
-  });
+  // Note: HTML attribute names are case-insensitive and are exposed in lowercase.
+  // To make data-include-* params work with camelCase template keys, we resolve
+  // values case-insensitively (exact match first, then lowercase match).
+  const lowerMap = Object.create(null);
+  for (const k of Object.keys(params)) lowerMap[k.toLowerCase()] = params[k];
+
+  return html.replace(
+    /\{\{\s*([a-zA-Z0-9_.\-]+)(?:\s*\|\s*([^}]+))?\s*\}\}/g,
+    (_m, key, deflt) => {
+      const exact = Object.prototype.hasOwnProperty.call(params, key)
+        ? params[key]
+        : undefined;
+      const val = exact !== undefined ? exact : lowerMap[key.toLowerCase()];
+      const out =
+        val != null ? String(val) : deflt != null ? String(deflt) : "";
+      return htmlEscape(out);
+    },
+  );
 }
 
 export async function include(selector = "[data-include]") {
