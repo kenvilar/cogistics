@@ -23,10 +23,14 @@
     --text-lg--line-height: 40px;
     --text-xl: 36px;
     --text-xl--line-height: 40px;
-    --text-2xl: 45px;
-    --text-2xl--line-height: 45px;
-    --text-3xl: 55px;
-    --text-3xl--line-height: 56px;
+    --text-2xl: 40px;
+    --text-2xl--line-height: 0px;
+    --text-3xl: 45px;
+    --text-3xl--line-height: 45px;
+    --text-4xl: 55px;
+    --text-4xl--line-height: 56px;
+    --text-5xl: 115px;
+    --text-5xl--line-height: 126px;
   }
   @custom-variant lg (@media screen and (max-width: 1279px));
   @custom-variant md (@media screen and (max-width: 991px));
@@ -37,11 +41,27 @@
   @layer base {
     h1,
     .h1 {
-      @apply text-3xl font-bold;
+      @apply text-4xl font-bold;
     }
     h2,
     .h2 {
+      @apply text-3xl font-bold;
+    }
+    h3,
+    .h3 {
       @apply text-2xl font-bold;
+    }
+    h4,
+    .h4 {
+      @apply text-xl font-bold;
+    }
+    h5,
+    .h5 {
+      @apply text-lg font-bold;
+    }
+    h6,
+    .h6 {
+      @apply text-md font-bold;
     }
     p {
       @apply text-base;
