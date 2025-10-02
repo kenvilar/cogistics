@@ -15,6 +15,8 @@
     --font-sans: "Inter", sans-serif;
     --font-serif: "Merriweather", serif;
     --font-mono: "Fira Code", monospace;
+    --font-primary: var(--font-barlow-semi-condensed);
+    --font-secondary: var(--font-roboto);
     --font-barlow-semi-condensed: "Barlow Semi Condensed", sans-serif;
     --font-roboto: "Roboto", sans-serif;
     /* Typography */
@@ -58,6 +60,7 @@
   @custom-variant sm (@media screen and (max-width: 767px));
   @custom-variant xs (@media screen and (max-width: 479px));
 </style>
+<link rel="stylesheet" href="/assets/css/fonts/fonts.css" />
 <style type="text/tailwindcss">
   @layer base {
     h1,
