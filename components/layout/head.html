@@ -11,6 +11,22 @@
   @theme {
     --breakpoint-*: initial;
     --spacing: 1px;
+    --text-xs: 13px;
+    --text-xs--line-height: 15px;
+    --text-sm: 14px;
+    --text-sm--line-height: 19.6px;
+    --text-base: 16px;
+    --text-base--line-height: 22.4px;
+    --text-md: 20px;
+    --text-md--line-height: 24px;
+    --text-lg: 21px;
+    --text-lg--line-height: 40px;
+    --text-xl: 36px;
+    --text-xl--line-height: 40px;
+    --text-2xl: 45px;
+    --text-2xl--line-height: 45px;
+    --text-3xl: 55px;
+    --text-3xl--line-height: 56px;
   }
   @custom-variant lg (@media screen and (max-width: 1279px));
   @custom-variant md (@media screen and (max-width: 991px));
@@ -18,6 +34,19 @@
   @custom-variant xs (@media screen and (max-width: 479px));
 </style>
 <style type="text/tailwindcss">
+  @layer base {
+    h1,
+    .h1 {
+      @apply text-3xl font-bold;
+    }
+    h2,
+    .h2 {
+      @apply text-2xl font-bold;
+    }
+    p {
+      @apply text-base;
+    }
+  }
   .page-wrapper {
     @apply relative mx-auto max-w-full;
   }
