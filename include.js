@@ -1,3 +1,10 @@
+// Lightweight include helper with aliasing and parameterized templates
+// Usage examples:
+// <div data-include="@ui/button.html" data-include-label="Click me"></div>
+// <div data-include="@ui/button.html?label=Click%20me"></div>
+// <div data-include="@ui/button.html" data-include-params='{"label":"Click me"}'></div>
+// Inside included HTML use {{ label | Default text }} tokens.
+
 const aliases = {
   "@components/": "/components/",
   "@layout/": "/components/layout/",
@@ -15,6 +22,56 @@ function resolveAlias(path) {
   return path;
 }
 
+function htmlEscape(str) {
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function gatherParams(el, url) {
+  const params = {};
+
+  // 1) From query string
+  if (url && url.searchParams) {
+    for (const [k, v] of url.searchParams.entries()) params[k] = v;
+  }
+
+  // 2) From data-include-params (JSON)
+  const json = el.getAttribute("data-include-params");
+  if (json) {
+    try {
+      const obj = JSON.parse(json);
+      if (obj && typeof obj === "object") Object.assign(params, obj);
+    } catch (e) {
+      console.warn("data-include-params is not valid JSON", e);
+    }
+  }
+
+  // 3) From data-include-* attributes (highest precedence)
+  for (const attr of Array.from(el.attributes)) {
+    const name = attr.name;
+    if (name === "data-include" || name === "data-include-params") continue;
+    if (name.startsWith("data-include-")) {
+      const key = name.slice("data-include-".length);
+      if (key) params[key] = attr.value;
+    }
+  }
+
+  return params;
+}
+
+function applyTemplate(html, params) {
+  // Replace tokens of the form {{ key }} or {{ key | Default }}
+  return html.replace(/\{\{\s*([a-zA-Z0-9_.\-]+)(?:\s*\|\s*([^}]+))?\s*\}\}/g, (_m, key, deflt) => {
+    const val = params.hasOwnProperty(key) ? params[key] : undefined;
+    const out = val != null ? String(val) : deflt != null ? String(deflt) : "";
+    return htmlEscape(out);
+  });
+}
+
 export async function include(selector = "[data-include]") {
   const hosts = document.querySelectorAll(selector);
   await Promise.all(
@@ -29,7 +86,11 @@ export async function include(selector = "[data-include]") {
 
       const res = await fetch(url);
       if (!res.ok) throw new Error(`Failed to load ${url}`);
-      el.outerHTML = await res.text();
+      const html = await res.text();
+
+      const params = gatherParams(el, url);
+      const rendered = applyTemplate(html, params);
+      el.outerHTML = rendered;
     }),
   );
 }
