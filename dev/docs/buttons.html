@@ -1,21 +1,18 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Cogistics • Buttons</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.14"></script>
-    <style type="text/tailwindcss">
-      @theme {
-        --*: initial;
-        --spacing: 1px;
-      }
-    </style>
     <script type="module">
       import { include } from "../../include.js";
       include();
     </script>
-    <link rel="stylesheet" href="/assets/css/custom.css" />
+    <template
+      data-include="@layout/head.html"
+      data-include-params='{
+      "title": "Buttons | Docs",
+      "metaTitle": "Buttons",
+      "metaDescription": "This is the documentation page.",
+      }'
+    ></template>
   </head>
   <body class="antialiased">
     <div class="mx-auto max-w-5xl px-16 py-20">
