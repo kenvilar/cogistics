@@ -17,4 +17,38 @@
   @custom-variant sm (@media screen and (max-width: 767px));
   @custom-variant xs (@media screen and (max-width: 479px));
 </style>
+<style type="text/tailwindcss">
+  .page-wrapper {
+    @apply relative mx-auto max-w-full;
+  }
+  .main-wrapper {
+    @apply relative;
+  }
+  .section {
+    @apply relative overflow-hidden;
+  }
+  .site-padding {
+    @apply xs:px-[12px] px-[40px] sm:px-[20px] md:px-[30px];
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-transparent px-[20px] py-[12px] text-center text-[14px] font-semibold leading-[normal] no-underline transition-[background-color,color,box-shadow,transform] duration-150;
+  }
+  .btn:focus {
+    @apply outline-none ring-2 ring-blue-500/35;
+  }
+  .btn:active {
+    transform: translateY(0.5px);
+  }
+  .btn.primary {
+    @apply border-blue-600 bg-blue-600 text-white hover:bg-blue-700;
+  }
+  .btn.secondary {
+    @apply border-gray-200 bg-gray-100 text-gray-900 hover:bg-gray-200;
+  }
+  .btn.tertiary {
+    @apply border-blue-200 bg-transparent text-blue-600 hover:bg-blue-50;
+  }
+</style>
 <link rel="stylesheet" href="/assets/css/custom.css" />
