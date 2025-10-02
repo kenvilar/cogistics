@@ -13,10 +13,11 @@ const aliases = {
   "@partials/": "components/partials/",
   "@forms/": "components/forms/",
   "@modals/": "components/modals/",
+  "@assets/": "assets/",
 };
 
 // Base URL of the project (directory where include.js lives)
-const INCLUDE_BASE = new URL('.', import.meta.url);
+const INCLUDE_BASE = new URL(".", import.meta.url);
 
 function resolveAlias(path) {
   // Absolute HTTP(S) URLs pass through
@@ -131,7 +132,28 @@ export async function include(selector = "[data-include]") {
       const html = await res.text();
 
       const params = gatherParams(el, url);
-      const rendered = applyTemplate(html, params);
+      let rendered = applyTemplate(html, params);
+
+      // Resolve any alias-like paths inside the included HTML so href/src
+      // attributes using @aliases (e.g. @assets/) will point to valid URLs.
+      // This performs a simple textual replacement for occurrences of:
+      //   " @alias/some/path "  or  ' @alias/some/path '
+      // It preserves surrounding quotes.
+      rendered = rendered.replace(
+        /(["'])(@[-a-zA-Z0-9_\/.]+\/[^"']+)\1/g,
+        (match, quote, token) => {
+          // Only replace when token starts with a known alias
+          for (const [key, val] of Object.entries(aliases)) {
+            if (token.startsWith(key)) {
+              const rest = token.slice(key.length);
+              return (
+                quote + new URL(val + rest, INCLUDE_BASE).toString() + quote
+              );
+            }
+          }
+          return match;
+        },
+      );
 
       // Insert as a live DOM fragment and ensure any <script> tags execute
       const tpl = document.createElement("template");
@@ -147,7 +169,8 @@ export async function include(selector = "[data-include]") {
           newScript.setAttribute(attr.name, attr.value);
         }
         // Inline code
-        if (oldScript.textContent) newScript.textContent = oldScript.textContent;
+        if (oldScript.textContent)
+          newScript.textContent = oldScript.textContent;
         // Replace in fragment
         oldScript.parentNode.replaceChild(newScript, oldScript);
       }
