@@ -1,23 +1,16 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Cogistics</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.14"></script>
-    <style type="text/tailwindcss">
-      @theme {
-        --*: initial;
-        --spacing: 1px;
-      }
-    </style>
-    <script type="module">
-      import { include } from "/include.js";
-      include();
-    </script>
-    <link rel="stylesheet" href="assets/css/custom.css" />
+    <template
+      data-include="@layout/head.html"
+      data-include-params='{
+      "title": "Home | Cogistics",
+      "metaTitle": "Homepage",
+      "metaDescription": "This is the homepage.",
+      }'
+    ></template>
   </head>
-  <body class="antialiased">
+  <body class="page-home antialiased">
     <div class="page-wrapper">
       <div data-include="@layout/header.html"></div>
       <div class="main-wrapper">
