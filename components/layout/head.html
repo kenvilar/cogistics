@@ -126,7 +126,7 @@
 
   /* Buttons */
   .btn {
-    @apply font-primary inline-flex items-center justify-center gap-2 rounded-lg border border-transparent px-[20px] py-[12px] text-center text-[14px] font-semibold leading-[normal] no-underline transition-[background-color,color,box-shadow,transform] duration-150;
+    @apply font-primary text-md inline-flex items-center justify-center gap-[10px] rounded-[40px] border px-[32px] py-[16px] text-center font-bold leading-[normal] no-underline transition-[background-color,color,box-shadow,transform] duration-150;
   }
   .btn:focus {
     @apply outline-none ring-2 ring-blue-500/35;
@@ -135,7 +135,7 @@
     transform: translateY(0.5px);
   }
   .btn.primary {
-    @apply border-blue-600 bg-blue-600 text-white hover:bg-blue-700;
+    @apply border-primary bg-primary text-white;
   }
   .btn.secondary {
     @apply border-gray-200 bg-gray-100 text-gray-900 hover:bg-gray-200;

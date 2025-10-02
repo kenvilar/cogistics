@@ -19,7 +19,7 @@
       <div data-include="@layout/header.html"></div>
       <div class="main-wrapper">
         <section class="section text-center">
-          <div class="site-padding py-80 sm:py-60">
+          <div class="site-padding py-[80px] pb-[100px] sm:py-[60px]">
             <div class="mx-auto max-w-[918px]">
               <p class="text-gradient font-primary font-semibold uppercase">
                 FREIGHT AUDIT & PAYMENT
@@ -36,9 +36,20 @@
                 transportation costs with freight audit, payment, and analytics
                 services.
               </p>
+              <div class="mb-[28px]"></div>
+              <div
+                data-include="@ui/button.html"
+                data-include-params='{"href":"#", "className":"primary"}'
+              ></div>
             </div>
           </div>
         </section>
+        <div
+          data-include="@sections/section-single-image.html"
+          data-include-params='{
+          "image":"https://1.img-dpreview.com/files/p/TS2400x1800~sample_galleries/1330372094/5731768045.jpg"
+          }'
+        ></div>
       </div>
     </div>
   </body>
