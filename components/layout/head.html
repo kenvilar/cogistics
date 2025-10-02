@@ -95,7 +95,11 @@
     }
     p,
     small,
-    span {
+    span,
+    li,
+    label,
+    input,
+    textarea {
       @apply font-secondary;
     }
   }
@@ -112,9 +116,17 @@
     @apply xs:px-[12px] px-[40px] sm:px-[20px] md:px-[30px];
   }
 
+  /* Gradient */
+  .text-gradient {
+    background: linear-gradient(90deg, #f26739 0%, #fc8b09 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
   /* Buttons */
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-transparent px-[20px] py-[12px] text-center text-[14px] font-semibold leading-[normal] no-underline transition-[background-color,color,box-shadow,transform] duration-150;
+    @apply font-primary inline-flex items-center justify-center gap-2 rounded-lg border border-transparent px-[20px] py-[12px] text-center text-[14px] font-semibold leading-[normal] no-underline transition-[background-color,color,box-shadow,transform] duration-150;
   }
   .btn:focus {
     @apply outline-none ring-2 ring-blue-500/35;
