@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cogistics • Docs</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.14"></script>
+    <style type="text/tailwindcss">
+      @theme {
+        --*: initial;
+        --spacing: 1px;
+      }
+    </style>
+    <script type="module">
+      import { include } from "/include.js";
+      include();
+    </script>
+    <link rel="stylesheet" href="/assets/css/custom.css" />
+  </head>
+  <body class="antialiased">
+    <div class="mx-auto max-w-5xl px-16 py-20">
+      <header class="mb-20 flex items-center justify-between">
+        <h1 class="text-24 font-semibold tracking-tight">Documentation</h1>
+        <a href="/index.html" class="text-12 text-slate-600 hover:text-slate-900">← Back to Home</a>
+      </header>
+
+      <p class="mt-8 text-12">
+        See documentation: <a class="text-blue-600 hover:underline" href="/docs/buttons.html">Buttons</a>
+      </p>
+    </div>
+  </body>
+</html>
