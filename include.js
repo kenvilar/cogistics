@@ -1,9 +1,10 @@
 // Lightweight include helper with aliasing and parameterized templates
 // Usage examples:
-// <div data-include="@ui/button.html" data-include-label="Click me"></div>
-// <div data-include="@ui/button.html?label=Click%20me"></div>
-// <div data-include="@ui/button.html" data-include-params='{"label":"Click me"}'></div>
-// Inside included HTML use {{ label | Default text }} tokens.
+// <div data-include="@ui/button.html" data-include-buttonText="Click me"></div>
+// <div data-include="@ui/button.html?buttonText=Click%20me"></div>
+// <div data-include="@ui/button.html" data-include-params='{"buttonText":"Click me"}'></div>
+// Inside included HTML use {{ buttonText | Default text }} tokens.
+// Backward compatibility: passing a param named "label" will be mapped to "buttonText".
 
 const aliases = {
   "@components/": "/components/",
@@ -58,6 +59,11 @@ function gatherParams(el, url) {
       const key = name.slice("data-include-".length);
       if (key) params[key] = attr.value;
     }
+  }
+
+  // Backward compat: map "label" to "buttonText" if needed
+  if (params.buttonText == null && params.label != null) {
+    params.buttonText = params.label;
   }
 
   return params;
