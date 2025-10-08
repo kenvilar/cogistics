@@ -21,6 +21,8 @@
     --color-white: #fff;
     --spacing: 1px;
     --container-5xl: 64rem;
+    --text-xs: 13px;
+    --text-xs--line-height: 15px;
     --text-base: 16px;
     --text-base--line-height: 22.4px;
     --text-lg: 21px;
@@ -50,6 +52,7 @@
     --text-md: 20px;
     --text-md--line-height: 24px;
     --color-primary: #f26739;
+    --color-secondary: var(--color-slate-blue);
     --color-tertiary: var(--color-lavender-mist);
     --color-text: var(--color-spanish-gray);
     --color-section-heading: var(--color-charcoal-gray);
@@ -395,6 +398,9 @@
   .justify-center {
     justify-content: center;
   }
+  .gap-10 {
+    gap: calc(var(--spacing) * 10);
+  }
   .gap-13 {
     gap: calc(var(--spacing) * 13);
   }
@@ -430,9 +436,19 @@
     border-style: var(--tw-border-style);
     border-width: 4px;
   }
+  .border-t-1 {
+    border-top-style: var(--tw-border-style);
+    border-top-width: 1px;
+  }
   .border-b {
     border-bottom-style: var(--tw-border-style);
     border-bottom-width: 1px;
+  }
+  .border-\[\#A9A9A999\/80\] {
+    border-color: #A9A9A999/80;
+  }
+  .border-\[rgba\(169\,169\,169\,0\.60\)\] {
+    border-color: rgba(169,169,169,0.60);
   }
   .border-slate-200 {
     border-color: var(--color-slate-200);
@@ -488,6 +504,12 @@
   .py-\[100px\] {
     padding-block: 100px;
   }
+  .pt-8 {
+    padding-top: calc(var(--spacing) * 8);
+  }
+  .pb-11 {
+    padding-bottom: calc(var(--spacing) * 11);
+  }
   .pb-\[100px\] {
     padding-bottom: 100px;
   }
@@ -496,6 +518,10 @@
   }
   .font-primary {
     font-family: var(--font-primary);
+  }
+  .text-xs {
+    font-size: var(--text-xs);
+    line-height: var(--tw-leading, var(--text-xs--line-height));
   }
   .text-\[12px\] {
     font-size: 12px;
@@ -523,6 +549,9 @@
   }
   .text-blue-600 {
     color: var(--color-blue-600);
+  }
+  .text-secondary {
+    color: var(--color-secondary);
   }
   .text-slate-600 {
     color: var(--color-slate-600);
@@ -609,6 +638,11 @@
       flex-direction: column;
     }
   }
+  .sm\:py-\[20px\] {
+    @media screen and (max-width: 767px) {
+      padding-block: 20px;
+    }
+  }
   .sm\:py-\[60px\] {
     @media screen and (max-width: 767px) {
       padding-block: 60px;
@@ -617,6 +651,11 @@
   .sm\:text-center {
     @media screen and (max-width: 767px) {
       text-align: center;
+    }
+  }
+  .xs\:flex-col {
+    @media screen and (max-width: 479px) {
+      flex-direction: column;
     }
   }
 }
