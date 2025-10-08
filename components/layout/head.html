@@ -111,3 +111,59 @@
     }
   })();
 </script>
+<script>
+  (function () {
+    const reveal = () => {
+      document.querySelector(".page-wrapper")?.classList.add("ready");
+    };
+
+    const waitForFonts = () =>
+      (document.fonts && document.fonts.ready) || Promise.resolve();
+
+    const waitForImages = () => {
+      const imgs = Array.from(document.images || []);
+      if (imgs.length === 0) return Promise.resolve();
+      return Promise.all(
+        imgs.map((img) => {
+          // Skip lazy images to avoid blocking initial paint unnecessarily
+          if (img.loading === "lazy") return Promise.resolve();
+          if (img.complete && img.naturalWidth !== 0) return Promise.resolve();
+          if (typeof img.decode === "function") {
+            return img.decode().catch(() => undefined);
+          }
+          return new Promise((res) => {
+            img.addEventListener("load", () => res(), { once: true });
+            img.addEventListener("error", () => res(), { once: true });
+          });
+        }),
+      );
+    };
+
+    const includesReady = () =>
+      window.__includesReady &&
+      typeof window.__includesReady.then === "function"
+        ? window.__includesReady
+        : Promise.resolve();
+
+    const start = async () => {
+      // Wait for includes (dynamic HTML), then fonts and images
+      try {
+        await includesReady();
+      } catch (_) {}
+      try {
+        await waitForFonts();
+      } catch (_) {}
+      try {
+        await waitForImages();
+      } catch (_) {}
+      reveal();
+    };
+
+    // Kick off once DOM is parsed so document.images is meaningful
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", start, { once: true });
+    } else {
+      start();
+    }
+  })();
+</script>

@@ -102,6 +102,11 @@
 .page-wrapper {
 	@apply relative mx-auto max-w-full;
 }
+.page-wrapper:not(.ready) {
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity 0.2s ease;
+}
 .main-wrapper {
 	@apply relative;
 }
