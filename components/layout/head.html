@@ -2,11 +2,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>{{ title | Cogistics }}</title>
 <meta name="title" content="{{ metaTitle | Cogistics }}" />
-<meta
-  name="description"
-  content="{{ metaDescription | Cogistics — a simple HTML starter with Tailwind CSS and component includes. }}"
-/>
-<link rel="stylesheet" href="@assets/css/fonts/fonts.css" />
+<meta name="description" content="{{ metaDescription | Cogistics — a simple HTML starter with Tailwind CSS and component includes. }}" />
+<link rel="preload" href="@assets/css/fonts/fonts.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript><link rel="stylesheet" href="@assets/css/fonts/fonts.css" /></noscript>
 <!--<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.14"></script>-->
 <link rel="stylesheet" href="@assets/css/tailwindcss/output.css" />
 <link rel="stylesheet" href="@assets/css/custom.css" />
@@ -34,8 +32,7 @@
       div.setAttribute("role", "status");
       div.setAttribute("aria-live", "polite");
       // Tailwind classes for the overlay (plus inline fallback in <style>)
-      div.className =
-        "fixed inset-0 z-[9999] flex items-center justify-center bg-white";
+      div.className = "fixed inset-0 z-[9999] flex items-center justify-center bg-white";
       const sr = document.createElement("span");
       sr.className = "sr-only";
       sr.textContent = "Loading…";
@@ -43,8 +40,7 @@
 
       // Spinner (Tailwind v4 utilities)
       const spinner = document.createElement("div");
-      spinner.className =
-        "h-50 w-50 rounded-full border-4 border-slate-200 border-t-primary animate-spin";
+      spinner.className = "h-50 w-50 rounded-full border-4 border-slate-200 border-t-primary animate-spin";
       // Fallback color if CSS variables not ready yet
       spinner.style.borderTopColor = "var(--color-primary, #f26739)";
       div.appendChild(spinner);
@@ -59,13 +55,10 @@
       return p && typeof p.then === "function" ? p : Promise.resolve();
     };
 
-    const waitForFonts = () =>
-      (document.fonts && document.fonts.ready) || Promise.resolve();
+    const waitForFonts = () => (document.fonts && document.fonts.ready) || Promise.resolve();
 
     const waitForImages = () => {
-      const imgs = Array.from(document.images || []).filter(
-        (img) => img.loading !== "lazy",
-      );
+      const imgs = Array.from(document.images || []).filter((img) => img.loading !== "lazy");
       if (imgs.length === 0) return Promise.resolve();
       return Promise.all(
         imgs.map((img) => {
@@ -118,8 +111,7 @@
       document.documentElement.classList.add("ready");
     };
 
-    const waitForFonts = () =>
-      (document.fonts && document.fonts.ready) || Promise.resolve();
+    const waitForFonts = () => (document.fonts && document.fonts.ready) || Promise.resolve();
 
     const waitForImages = () => {
       const imgs = Array.from(document.images || []);
@@ -140,11 +132,7 @@
       );
     };
 
-    const includesReady = () =>
-      window.__includesReady &&
-      typeof window.__includesReady.then === "function"
-        ? window.__includesReady
-        : Promise.resolve();
+    const includesReady = () => (window.__includesReady && typeof window.__includesReady.then === "function" ? window.__includesReady : Promise.resolve());
 
     const start = async () => {
       // Wait for includes (dynamic HTML), then fonts and images
