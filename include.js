@@ -19,6 +19,14 @@ const aliases = {
 // Base URL of the project (directory where include.js lives)
 const INCLUDE_BASE = new URL(".", import.meta.url);
 
+// Expose a global promise that resolves when include() completes
+if (typeof window !== "undefined") {
+  // Create a fresh promise on first load; include() will resolve it
+  window.__includesReady = new Promise((resolve) => {
+    window.__includesReadyResolve = resolve;
+  });
+}
+
 function resolveAlias(path) {
   // Absolute HTTP(S) URLs pass through
   if (/^https?:\/\//.test(path)) return path;
@@ -179,4 +187,8 @@ export async function include(selector = "[data-include]") {
       el.replaceWith(frag);
     }),
   );
+  if (typeof window !== "undefined") {
+    try { window.__includesReadyResolve && window.__includesReadyResolve(); } catch (e) {}
+    try { window.dispatchEvent(new Event("includes:ready")); } catch (e) {}
+  }
 }

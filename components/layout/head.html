@@ -10,3 +10,104 @@
 <!--<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.14"></script>-->
 <link rel="stylesheet" href="@assets/css/tailwindcss/output.css" />
 <link rel="stylesheet" href="@assets/css/custom.css" />
+<style>
+  /* Preloader visibility fallback so it shows even before Tailwind loads */
+  #preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  html.ready #preloader {
+    display: none;
+  }
+</style>
+<script>
+  (function () {
+    function ensurePreloader() {
+      if (document.getElementById("preloader")) return;
+      const div = document.createElement("div");
+      div.id = "preloader";
+      div.setAttribute("role", "status");
+      div.setAttribute("aria-live", "polite");
+      // Tailwind classes for the overlay (plus inline fallback in <style>)
+      div.className =
+        "fixed inset-0 z-[9999] flex items-center justify-center bg-white";
+      const sr = document.createElement("span");
+      sr.className = "sr-only";
+      sr.textContent = "Loading…";
+      div.appendChild(sr);
+
+      // Spinner (Tailwind v4 utilities)
+      const spinner = document.createElement("div");
+      spinner.className =
+        "h-50 w-50 rounded-full border-4 border-slate-200 border-t-primary animate-spin";
+      // Fallback color if CSS variables not ready yet
+      spinner.style.borderTopColor = "var(--color-primary, #f26739)";
+      div.appendChild(spinner);
+
+      // Insert as the first element in <body>, or into <html> if body missing
+      const parent = document.body || document.documentElement;
+      parent.prepend(div);
+    }
+
+    const includesReady = () => {
+      const p = window.__includesReady;
+      return p && typeof p.then === "function" ? p : Promise.resolve();
+    };
+
+    const waitForFonts = () =>
+      (document.fonts && document.fonts.ready) || Promise.resolve();
+
+    const waitForImages = () => {
+      const imgs = Array.from(document.images || []).filter(
+        (img) => img.loading !== "lazy",
+      );
+      if (imgs.length === 0) return Promise.resolve();
+      return Promise.all(
+        imgs.map((img) => {
+          if (img.complete && img.naturalWidth !== 0) return Promise.resolve();
+          if (typeof img.decode === "function") {
+            return img.decode().catch(() => undefined);
+          }
+          return new Promise((res) => {
+            img.addEventListener("load", () => res(), { once: true });
+            img.addEventListener("error", () => res(), { once: true });
+          });
+        }),
+      );
+    };
+
+    async function start() {
+      try {
+        await includesReady();
+      } catch (_) {}
+      try {
+        await waitForFonts();
+      } catch (_) {}
+      try {
+        await waitForImages();
+      } catch (_) {}
+      document.documentElement.classList.add("ready");
+      const pre = document.getElementById("preloader");
+      if (pre) pre.remove();
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener(
+        "DOMContentLoaded",
+        () => {
+          ensurePreloader();
+          start();
+        },
+        { once: true },
+      );
+    } else {
+      ensurePreloader();
+      start();
+    }
+  })();
+</script>
