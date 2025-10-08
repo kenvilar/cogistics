@@ -1,11 +1,21 @@
-<header class="border-b border-slate-200 bg-white/70 backdrop-blur supports-[backdrop-filter]:bg-white/60" role="banner">
-  <div class="site-padding py-[20px]">
+<header class="bg-white shadow-[0_4px_24px_0_rgba(66,62,175,0.16)] backdrop-blur supports-[backdrop-filter]:bg-white/60" role="banner">
+  <div class="site-padding pt-23 pb-31">
     <div class="mx-auto flex max-w-[1200px] items-center justify-between">
-      <a class="text-[20px] font-semibold tracking-tight text-black no-underline" href="/" aria-label="Cogistics home">cogistics</a>
-      <nav class="flex items-center gap-[12px]" aria-label="Primary">
-        <a class="hover:text-gray text-[12px] text-black" href="/">Home</a>
-        <a class="hover:text-gray text-[12px] text-black" href="/blog">Blog</a>
-        <a class="hover:text-gray text-[12px] text-black" href="/contact">Contact</a>
+      <a href="/" class="text-[20px] font-semibold tracking-tight text-black no-underline" aria-label="Cogistics home">
+        <img src="/assets/images/logos/logo.svg" alt="logo" class="h-53" />
+      </a>
+      <nav class="flex items-center gap-[45px]" aria-label="Primary">
+        <div class="navlink__group">
+          <a href="/blog" class="nav__link">Resource Hub</a>
+        </div>
+        <div class="nav-cta__group">
+          <a href="/contact" class="btn primary group">
+            Let's Talk
+            <span class="transition-transform group-hover:translate-x-[4px]">
+              <img src="/assets/svg/button-arrow-right-icon.svg" alt="button arrow right icon" />
+            </span>
+          </a>
+        </div>
       </nav>
     </div>
   </div>
