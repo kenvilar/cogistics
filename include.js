@@ -118,18 +118,6 @@ function applyTemplate(html, params) {
 }
 
 export async function include(selector = "[data-include]") {
-  // Expose a global promise indicating when this include run is finished.
-  // If include() is called multiple times, we overwrite with the latest run.
-  let resolveIncludes;
-  const includesPromise = new Promise((resolve) => (resolveIncludes = resolve));
-  try {
-    if (typeof window !== "undefined") {
-      window.__includesReady = includesPromise;
-    }
-  } catch (_) {
-    // non-browser environment; ignore
-  }
-
   const hosts = document.querySelectorAll(selector);
   await Promise.all(
     Array.from(hosts).map(async (el) => {
@@ -191,12 +179,4 @@ export async function include(selector = "[data-include]") {
       el.replaceWith(frag);
     }),
   );
-
-  // Resolve and notify listeners that includes are ready.
-  try {
-    resolveIncludes && resolveIncludes();
-    if (typeof window !== "undefined") {
-      window.dispatchEvent(new Event("includes:ready"));
-    }
-  } catch (_) {}
 }

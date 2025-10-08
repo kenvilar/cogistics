@@ -6,70 +6,142 @@
   name="description"
   content="{{ metaDescription | Cogistics — a simple HTML starter with Tailwind CSS and component includes. }}"
 />
-<style>
-  /* Hide until JS marks the document ready */
-  html:not(.ready) {
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.2s ease;
+<link rel="stylesheet" href="@assets/css/fonts/fonts.css" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.14"></script>
+<style type="text/tailwindcss">
+  @theme {
+    --breakpoint-*: initial;
+    --spacing: 1px;
+    /* Font families */
+    --font-sans: "Inter", sans-serif;
+    --font-serif: "Merriweather", serif;
+    --font-mono: "Fira Code", monospace;
+    --font-primary: var(--font-barlow-semi-condensed);
+    --font-secondary: var(--font-roboto);
+    --font-barlow-semi-condensed: "Barlow Semi Condensed", sans-serif;
+    --font-roboto: "Roboto", sans-serif;
+    /* Typography */
+    --text-xs: 13px;
+    --text-xs--line-height: 15px;
+    --text-sm: 14px;
+    --text-sm--line-height: 19.6px;
+    --text-base: 16px;
+    --text-base--line-height: 22.4px;
+    --text-md: 20px;
+    --text-md--line-height: 24px;
+    --text-lg: 21px;
+    --text-lg--line-height: 40px;
+    --text-xl: 36px;
+    --text-xl--line-height: 40px;
+    --text-2xl: 40px;
+    --text-2xl--line-height: 0px;
+    --text-3xl: 45px;
+    --text-3xl--line-height: 45px;
+    --text-4xl: 55px;
+    --text-4xl--line-height: 56px;
+    --text-5xl: 115px;
+    --text-5xl--line-height: 126px;
+    /* Colors */
+    --color-dev: red;
+    --color-primary: #f26739;
+    --color-secondary: var(--color-slate-blue);
+    --color-tertiary: var(--color-lavender-mist);
+    --color-text: var(--color-spanish-gray);
+    --color-section-heading: var(--color-charcoal-gray);
+    --color-page-heading: var(--color-charcoal);
+    --color-lavender-gray: #f0eff5;
+    --color-charcoal-gray: #252525;
+    --color-spanish-gray: #797979;
+    --color-charcoal: #2d2d2d;
+    --color-slate-blue: #423eaf;
+    --color-lavender-mist: #f0eff5;
+  }
+  @custom-variant lg (@media screen and (max-width: 1279px));
+  @custom-variant md (@media screen and (max-width: 991px));
+  @custom-variant sm (@media screen and (max-width: 767px));
+  @custom-variant xs (@media screen and (max-width: 479px));
+</style>
+<style type="text/tailwindcss">
+  @layer base {
+    body {
+      @apply font-primary text-text;
+    }
+    h1,
+    .h1 {
+      @apply text-page-heading text-4xl font-bold;
+    }
+    h2,
+    .h2 {
+      @apply text-section-heading text-3xl font-bold;
+    }
+    h3,
+    .h3 {
+      @apply text-section-heading text-2xl font-bold;
+    }
+    h4,
+    .h4 {
+      @apply text-section-heading text-xl font-bold;
+    }
+    h5,
+    .h5 {
+      @apply text-section-heading text-lg font-bold;
+    }
+    h6,
+    .h6 {
+      @apply text-md text-section-heading font-bold;
+    }
+    p {
+      @apply text-text text-base;
+    }
+    p,
+    small,
+    span,
+    li,
+    label,
+    input,
+    textarea {
+      @apply font-secondary;
+    }
+  }
+  .page-wrapper {
+    @apply relative mx-auto max-w-full;
+  }
+  .main-wrapper {
+    @apply relative;
+  }
+  .section {
+    @apply relative overflow-hidden;
+  }
+  .site-padding {
+    @apply xs:px-[12px] px-[40px] sm:px-[20px] md:px-[30px];
+  }
+
+  /* Gradient */
+  .text-gradient {
+    background: linear-gradient(90deg, #f26739 0%, #fc8b09 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply font-primary text-md inline-flex items-center justify-center gap-[10px] rounded-[40px] border px-[32px] py-[16px] text-center font-bold leading-[normal] no-underline transition-[background-color,color,box-shadow,transform] duration-150;
+  }
+  .btn:focus {
+    @apply outline-none ring-2 ring-blue-500/35;
+  }
+  .btn:active {
+    transform: translateY(0.5px);
+  }
+  .btn.primary {
+    @apply border-primary bg-primary text-white;
+  }
+  .btn.secondary {
+    @apply border-gray-200 bg-gray-100 text-gray-900 hover:bg-gray-200;
+  }
+  .btn.tertiary {
+    @apply border-blue-200 bg-transparent text-blue-600 hover:bg-blue-50;
   }
 </style>
-<link rel="stylesheet" href="@assets/css/fonts/fonts.css" />
-<!--<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.14"></script>-->
-<link rel="stylesheet" href="@assets/css/tailwindcss/output.css" />
 <link rel="stylesheet" href="@assets/css/custom.css" />
-<script>
-  (function () {
-    const reveal = () => {
-      document.documentElement.classList.add("ready");
-    };
-
-    const waitForFonts = () =>
-      (document.fonts && document.fonts.ready) || Promise.resolve();
-
-    const waitForImages = () => {
-      const imgs = Array.from(document.images || []);
-      if (imgs.length === 0) return Promise.resolve();
-      return Promise.all(
-        imgs.map((img) => {
-          // Skip lazy images to avoid blocking initial paint unnecessarily
-          if (img.loading === "lazy") return Promise.resolve();
-          if (img.complete && img.naturalWidth !== 0) return Promise.resolve();
-          if (typeof img.decode === "function") {
-            return img.decode().catch(() => undefined);
-          }
-          return new Promise((res) => {
-            img.addEventListener("load", () => res(), { once: true });
-            img.addEventListener("error", () => res(), { once: true });
-          });
-        })
-      );
-    };
-
-    const includesReady = () =>
-      (window.__includesReady && typeof window.__includesReady.then === "function")
-        ? window.__includesReady
-        : Promise.resolve();
-
-    const start = async () => {
-      // Wait for includes (dynamic HTML), then fonts and images
-      try {
-        await includesReady();
-      } catch (_) {}
-      try {
-        await waitForFonts();
-      } catch (_) {}
-      try {
-        await waitForImages();
-      } catch (_) {}
-      reveal();
-    };
-
-    // Kick off once DOM is parsed so document.images is meaningful
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", start, { once: true });
-    } else {
-      start();
-    }
-  })();
-</script>
