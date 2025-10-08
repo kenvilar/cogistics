@@ -487,6 +487,9 @@
   .py-20 {
     padding-block: calc(var(--spacing) * 20);
   }
+  .py-80 {
+    padding-block: calc(var(--spacing) * 80);
+  }
   .py-100 {
     padding-block: calc(var(--spacing) * 100);
   }
@@ -517,8 +520,14 @@
   .pt-23 {
     padding-top: calc(var(--spacing) * 23);
   }
+  .pt-80 {
+    padding-top: calc(var(--spacing) * 80);
+  }
   .pb-11 {
     padding-bottom: calc(var(--spacing) * 11);
+  }
+  .pb-30 {
+    padding-bottom: calc(var(--spacing) * 30);
   }
   .pb-31 {
     padding-bottom: calc(var(--spacing) * 31);

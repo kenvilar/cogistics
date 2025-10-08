@@ -1,24 +1,47 @@
 <!doctype html>
 <html lang="en" class="page-blog">
   <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Blog | Cogistics</title>
+    <meta name="title" content="Blog Page" />
+    <meta name="description" content="This is the blog page." />
+    <link rel="stylesheet" href="/assets/css/fonts/fonts.css" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="/assets/css/fonts/fonts.css" /></noscript>
+    <link rel="stylesheet" href="/assets/css/tailwindcss/output.css" />
+    <link rel="stylesheet" href="/assets/css/custom.css" />
+    <link rel="stylesheet" href="/assets/css/layout/header.css" />
     <script type="module">
       import { include } from "/include.js";
       include();
     </script>
-    <template
-      data-include="@layout/head.html"
-      data-include-params='{
-      "title": "Blog | Cogistics",
-      "metaTitle": "Blog Page",
-      "metaDescription": "This is the blog page.",
-      }'></template>
   </head>
   <body class="antialiased">
     <div class="page-wrapper">
       <div data-include="@layout/header.html"></div>
+
       <main class="main-wrapper">
-        <h1 class="text-[20px]">Blog</h1>
-        <p class="text-[12px] text-slate-600">This is a placeholder blog page. Add your posts here.</p>
+        <section class="section text-center">
+          <div class="site-padding pt-80 pb-30">
+            <div class="site-max-width">
+              <h1>Blog</h1>
+            </div>
+          </div>
+        </section>
+        <section class="section">
+          <div class="site-padding">
+            <div class="site-max-width relative h-[410px] overflow-hidden rounded-[10px]">
+              <img src="/assets/images/blog/hero--blog.webp" class="h-full w-full max-w-none object-cover" alt="section-single-image" />
+              <div class="absolute inset-0 h-full w-full bg-black opacity-40"></div>
+            </div>
+          </div>
+        </section>
+        <section class="section">
+          <div class="site-padding py-80 sm:py-[60px]">
+            <div class="site-max-width bg-tertiary overflow-hidden rounded-[10px]">ok</div>
+          </div>
+        </section>
+        <div data-include="@layout/footer.html"></div>
       </main>
     </div>
   </body>
