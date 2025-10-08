@@ -1,34 +1,38 @@
 <!doctype html>
 <html lang="en" class="page-home">
   <head>
-    <script type="module">
-      import { include } from "./include.js";
-      include();
-    </script>
-    <template
-      data-include="@layout/head.html"
-      data-include-params='{
-      "title": "Home | Cogistics",
-      "metaTitle": "Homepage",
-      "metaDescription": "This is the homepage.",
-      }'
-    ></template>
-    <style>
-      /* Hide main content until the page is ready to prevent text flash */
-      html:not(.ready) .page-wrapper {
-        visibility: hidden;
-        opacity: 0;
-      }
-      html.ready .page-wrapper {
-        visibility: visible;
-        opacity: 1;
-        transition: opacity 0.2s ease;
-      }
-    </style>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Home | Cogistics</title>
+    <meta name="title" content="Homepage" />
+    <meta name="description" content="This is the homepage." />
+    <link rel="stylesheet" href="./assets/css/fonts/fonts.css" />
+    <link rel="stylesheet" href="./assets/css/tailwindcss/output.css" />
+    <link rel="stylesheet" href="./assets/css/custom.css" />
   </head>
   <body class="antialiased">
     <div class="page-wrapper">
-      <div data-include="@layout/header.html"></div>
+      <header
+        class="border-b border-slate-200 bg-white/70 backdrop-blur supports-[backdrop-filter]:bg-white/60"
+      >
+        <div class="site-padding py-[20px]">
+          <div class="mx-auto flex max-w-[1200px] items-center justify-between">
+            <h1 class="text-[20px] font-semibold tracking-tight">cogistics</h1>
+            <nav class="flex items-center gap-[12px]">
+              <a class="hover:text-gray text-[12px] text-black" href="/"
+                >Home</a
+              >
+              <a class="hover:text-gray text-[12px] text-black" href="/blog"
+                >Blog</a
+              >
+              <a class="hover:text-gray text-[12px] text-black" href="/contact"
+                >Contact</a
+              >
+            </nav>
+          </div>
+        </div>
+      </header>
+
       <div class="main-wrapper">
         <section class="section text-center">
           <div class="site-padding py-[80px] pb-[100px] sm:py-[60px]">
@@ -49,16 +53,35 @@
                 services.
               </p>
               <div class="mb-[28px]"></div>
-              <div data-include="@ui/button.html"></div>
+              <a href="/contact" class="btn primary group">
+                Let's Talk
+                <span
+                  class="transition-transform group-hover:translate-x-[4px]"
+                >
+                  <img
+                    src="./assets/svg/button-arrow-right-icon.svg"
+                    alt="button arrow right icon" /></span
+              ></a>
             </div>
           </div>
         </section>
-        <div
-          data-include="@sections/section-single-image.html"
-          data-include-params='{
-          "image":"@assets/images/home/landing-page-first-image.avif"
-          }'
-        ></div>
+        <section class="section">
+          <div class="site-padding sm:py-[60px]">
+            <div
+              class="relative mx-auto h-[410px] max-w-[1146px] overflow-hidden rounded-[10px]"
+            >
+              <img
+                src="./assets/images/home/landing-page-first-image.avif"
+                class="h-full w-full max-w-none object-cover"
+                alt="section-single-image"
+              />
+              <div
+                class="absolute inset-0 h-full w-full bg-black opacity-40"
+              ></div>
+            </div>
+          </div>
+        </section>
+
         <section class="section sm:text-center">
           <div class="site-padding py-[73px] sm:py-[60px]">
             <div class="mx-auto max-w-[1130px]">
@@ -89,7 +112,15 @@
                     happen.
                   </p>
                   <div class="mb-[21px]"></div>
-                  <div data-include="@ui/button.html"></div>
+                  <a href="/contact" class="btn primary group">
+                    Let's Talk
+                    <span
+                      class="transition-transform group-hover:translate-x-[4px]"
+                    >
+                      <img
+                        src="./assets/svg/button-arrow-right-icon.svg"
+                        alt="button arrow right icon" /></span
+                  ></a>
                 </div>
               </div>
             </div>
