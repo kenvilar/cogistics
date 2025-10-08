@@ -8,8 +8,8 @@
 	--font-mono: "Fira Code", monospace;
 	--font-primary: var(--font-barlow-semi-condensed);
 	--font-secondary: var(--font-roboto);
-	--font-barlow-semi-condensed: "Barlow Semi Condensed", sans-serif;
-	--font-roboto: "Roboto", sans-serif;
+	--font-barlow-semi-condensed: "Barlow Semi Condensed", "Roboto", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+	--font-roboto: "Roboto", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
 	/* Typography */
 	--text-xs: 13px;
 	--text-xs--line-height: 15px;
