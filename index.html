@@ -13,6 +13,18 @@
       "metaDescription": "This is the homepage.",
       }'
     ></template>
+    <style>
+      /* Hide main content until the page is ready to prevent text flash */
+      html:not(.ready) .page-wrapper {
+        visibility: hidden;
+        opacity: 0;
+      }
+      html.ready .page-wrapper {
+        visibility: visible;
+        opacity: 1;
+        transition: opacity 0.2s ease;
+      }
+    </style>
   </head>
   <body class="antialiased">
     <div class="page-wrapper">

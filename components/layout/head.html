@@ -97,10 +97,11 @@
     }
 
     if (document.readyState === "loading") {
+      // Ensure preloader is present as early as possible to avoid flash
+      ensurePreloader();
       document.addEventListener(
         "DOMContentLoaded",
         () => {
-          ensurePreloader();
           start();
         },
         { once: true },
@@ -114,7 +115,7 @@
 <script>
   (function () {
     const reveal = () => {
-      document.querySelector(".page-wrapper")?.classList.add("ready");
+      document.documentElement.classList.add("ready");
     };
 
     const waitForFonts = () =>
