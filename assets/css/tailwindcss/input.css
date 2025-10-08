@@ -111,6 +111,9 @@
 .site-padding {
 	@apply xs:px-[12px] px-[40px] sm:px-[20px] md:px-[30px];
 }
+.site-max-width {
+	@apply max-w-[1146px] mx-auto;
+}
 /* Gradient */
 .text-gradient {
 	background: linear-gradient(90deg, #f26739 0%, #fc8b09 100%);

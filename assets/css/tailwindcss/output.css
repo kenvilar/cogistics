@@ -242,17 +242,8 @@
   .mx-auto {
     margin-inline: auto;
   }
-  .mt-4 {
-    margin-top: calc(var(--spacing) * 4);
-  }
-  .mt-6 {
-    margin-top: calc(var(--spacing) * 6);
-  }
   .mt-8 {
     margin-top: calc(var(--spacing) * 8);
-  }
-  .mb-4 {
-    margin-bottom: calc(var(--spacing) * 4);
   }
   .mb-6 {
     margin-bottom: calc(var(--spacing) * 6);
@@ -260,14 +251,17 @@
   .mb-8 {
     margin-bottom: calc(var(--spacing) * 8);
   }
-  .mb-16 {
-    margin-bottom: calc(var(--spacing) * 16);
-  }
   .mb-20 {
     margin-bottom: calc(var(--spacing) * 20);
   }
-  .mb-24 {
-    margin-bottom: calc(var(--spacing) * 24);
+  .mb-22 {
+    margin-bottom: calc(var(--spacing) * 22);
+  }
+  .mb-27 {
+    margin-bottom: calc(var(--spacing) * 27);
+  }
+  .mb-60 {
+    margin-bottom: calc(var(--spacing) * 60);
   }
   .mb-\[10px\] {
     margin-bottom: 10px;
@@ -323,8 +317,17 @@
   .max-w-\[62px\] {
     max-width: 62px;
   }
+  .max-w-\[368px\] {
+    max-width: 368px;
+  }
+  .max-w-\[453px\] {
+    max-width: 453px;
+  }
   .max-w-\[480px\] {
     max-width: 480px;
+  }
+  .max-w-\[498px\] {
+    max-width: 498px;
   }
   .max-w-\[519px\] {
     max-width: 519px;
@@ -338,11 +341,17 @@
   .max-w-\[551px\] {
     max-width: 551px;
   }
+  .max-w-\[555px\] {
+    max-width: 555px;
+  }
   .max-w-\[712px\] {
     max-width: 712px;
   }
   .max-w-\[918px\] {
     max-width: 918px;
+  }
+  .max-w-\[1105px\] {
+    max-width: 1105px;
   }
   .max-w-\[1130px\] {
     max-width: 1130px;
@@ -374,20 +383,17 @@
   .flex-col {
     flex-direction: column;
   }
-  .flex-wrap {
-    flex-wrap: wrap;
-  }
   .items-center {
     align-items: center;
+  }
+  .items-end {
+    align-items: flex-end;
   }
   .justify-between {
     justify-content: space-between;
   }
   .justify-center {
     justify-content: center;
-  }
-  .gap-12 {
-    gap: calc(var(--spacing) * 12);
   }
   .gap-13 {
     gap: calc(var(--spacing) * 13);
@@ -410,17 +416,11 @@
   .overflow-hidden {
     overflow: hidden;
   }
-  .overflow-x-auto {
-    overflow-x: auto;
-  }
   .rounded-\[10px\] {
     border-radius: 10px;
   }
   .rounded-full {
     border-radius: calc(infinity * 1px);
-  }
-  .rounded-lg {
-    border-radius: var(--radius-lg);
   }
   .border {
     border-style: var(--tw-border-style);
@@ -429,10 +429,6 @@
   .border-4 {
     border-style: var(--tw-border-style);
     border-width: 4px;
-  }
-  .border-t {
-    border-top-style: var(--tw-border-style);
-    border-top-width: 1px;
   }
   .border-b {
     border-bottom-style: var(--tw-border-style);
@@ -462,9 +458,6 @@
   .object-cover {
     object-fit: cover;
   }
-  .p-12 {
-    padding: calc(var(--spacing) * 12);
-  }
   .px-16 {
     padding-inline: calc(var(--spacing) * 16);
   }
@@ -477,26 +470,26 @@
   .py-\[20px\] {
     padding-block: 20px;
   }
+  .py-\[68px\] {
+    padding-block: 68px;
+  }
   .py-\[73px\] {
     padding-block: 73px;
   }
   .py-\[80px\] {
     padding-block: 80px;
   }
+  .py-\[81px\] {
+    padding-block: 81px;
+  }
   .py-\[100px\] {
     padding-block: 100px;
-  }
-  .pt-10 {
-    padding-top: calc(var(--spacing) * 10);
   }
   .pb-\[100px\] {
     padding-bottom: 100px;
   }
   .text-center {
     text-align: center;
-  }
-  .font-mono {
-    font-family: var(--font-mono);
   }
   .font-primary {
     font-family: var(--font-primary);
@@ -522,24 +515,14 @@
     --tw-tracking: var(--tracking-tight);
     letter-spacing: var(--tracking-tight);
   }
-  .tracking-wide {
-    --tw-tracking: var(--tracking-wide);
-    letter-spacing: var(--tracking-wide);
-  }
   .text-black {
     color: var(--color-black);
   }
   .text-blue-600 {
     color: var(--color-blue-600);
   }
-  .text-slate-500 {
-    color: var(--color-slate-500);
-  }
   .text-slate-600 {
     color: var(--color-slate-600);
-  }
-  .text-slate-700 {
-    color: var(--color-slate-700);
   }
   .lowercase {
     text-transform: lowercase;
@@ -713,6 +696,10 @@
   @media screen and (max-width: 479px) {
     padding-inline: 12px;
   }
+}
+.site-max-width {
+  margin-inline: auto;
+  max-width: 1146px;
 }
 .text-gradient {
   background: linear-gradient(90deg, #f26739 0%, #fc8b09 100%);
