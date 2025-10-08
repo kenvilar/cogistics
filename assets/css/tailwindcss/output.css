@@ -50,6 +50,7 @@
     --text-md: 20px;
     --text-md--line-height: 24px;
     --color-primary: #f26739;
+    --color-tertiary: var(--color-lavender-mist);
     --color-text: var(--color-spanish-gray);
     --color-section-heading: var(--color-charcoal-gray);
     --color-page-heading: var(--color-charcoal);
@@ -256,6 +257,9 @@
   .mb-6 {
     margin-bottom: calc(var(--spacing) * 6);
   }
+  .mb-8 {
+    margin-bottom: calc(var(--spacing) * 8);
+  }
   .mb-16 {
     margin-bottom: calc(var(--spacing) * 16);
   }
@@ -277,6 +281,9 @@
   .mb-\[28px\] {
     margin-bottom: 28px;
   }
+  .mb-\[48px\] {
+    margin-bottom: 48px;
+  }
   .contents {
     display: contents;
   }
@@ -288,6 +295,9 @@
   }
   .inline {
     display: inline;
+  }
+  .table {
+    display: table;
   }
   .h-50 {
     height: calc(var(--spacing) * 50);
@@ -307,8 +317,23 @@
   .max-w-5xl {
     max-width: var(--container-5xl);
   }
+  .max-w-\[50px\] {
+    max-width: 50px;
+  }
+  .max-w-\[62px\] {
+    max-width: 62px;
+  }
   .max-w-\[480px\] {
     max-width: 480px;
+  }
+  .max-w-\[519px\] {
+    max-width: 519px;
+  }
+  .max-w-\[527px\] {
+    max-width: 527px;
+  }
+  .max-w-\[547px\] {
+    max-width: 547px;
   }
   .max-w-\[551px\] {
     max-width: 551px;
@@ -322,6 +347,9 @@
   .max-w-\[1130px\] {
     max-width: 1130px;
   }
+  .max-w-\[1137px\] {
+    max-width: 1137px;
+  }
   .max-w-\[1146px\] {
     max-width: 1146px;
   }
@@ -331,8 +359,20 @@
   .max-w-none {
     max-width: none;
   }
+  .border-collapse {
+    border-collapse: collapse;
+  }
+  .transform {
+    transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
+  }
   .animate-spin {
     animation: var(--animate-spin);
+  }
+  .resize {
+    resize: both;
+  }
+  .flex-col {
+    flex-direction: column;
   }
   .flex-wrap {
     flex-wrap: wrap;
@@ -346,8 +386,23 @@
   .justify-center {
     justify-content: center;
   }
+  .gap-9 {
+    gap: calc(var(--spacing) * 9);
+  }
   .gap-12 {
     gap: calc(var(--spacing) * 12);
+  }
+  .gap-13 {
+    gap: calc(var(--spacing) * 13);
+  }
+  .gap-15 {
+    gap: calc(var(--spacing) * 15);
+  }
+  .gap-19 {
+    gap: calc(var(--spacing) * 19);
+  }
+  .gap-20 {
+    gap: calc(var(--spacing) * 20);
   }
   .gap-\[12px\] {
     gap: 12px;
@@ -395,6 +450,9 @@
   .bg-black {
     background-color: var(--color-black);
   }
+  .bg-tertiary {
+    background-color: var(--color-tertiary);
+  }
   .bg-white {
     background-color: var(--color-white);
   }
@@ -425,6 +483,9 @@
   .py-\[80px\] {
     padding-block: 80px;
   }
+  .py-\[100px\] {
+    padding-block: 100px;
+  }
   .pt-10 {
     padding-top: calc(var(--spacing) * 10);
   }
@@ -448,6 +509,10 @@
   }
   .text-\[24px\] {
     font-size: 24px;
+  }
+  .leading-\[100\%\] {
+    --tw-leading: 100%;
+    line-height: 100%;
   }
   .font-semibold {
     --tw-font-weight: var(--font-weight-semibold);
@@ -482,6 +547,9 @@
   .uppercase {
     text-transform: uppercase;
   }
+  .underline {
+    text-decoration-line: underline;
+  }
   .antialiased {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -489,8 +557,16 @@
   .opacity-40 {
     opacity: 40%;
   }
+  .outline {
+    outline-style: var(--tw-outline-style);
+    outline-width: 1px;
+  }
   .backdrop-blur {
     --tw-backdrop-blur: blur(8px);
+    -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
+    backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
+  }
+  .backdrop-filter {
     -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
     backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
   }
@@ -539,6 +615,11 @@
       max-width: 100%;
     }
   }
+  .sm\:order-2 {
+    @media screen and (max-width: 767px) {
+      order: 2;
+    }
+  }
   .sm\:flex-col {
     @media screen and (max-width: 767px) {
       flex-direction: column;
@@ -570,36 +651,36 @@
   h2,	.h2 {
     font-size: var(--text-3xl);
     line-height: var(--tw-leading, var(--text-3xl--line-height));
-    --tw-font-weight: var(--font-weight-bold);
-    font-weight: var(--font-weight-bold);
+    --tw-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
     color: var(--color-section-heading);
   }
   h3,	.h3 {
     font-size: var(--text-2xl);
     line-height: var(--tw-leading, var(--text-2xl--line-height));
-    --tw-font-weight: var(--font-weight-bold);
-    font-weight: var(--font-weight-bold);
+    --tw-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
     color: var(--color-section-heading);
   }
   h4,	.h4 {
     font-size: var(--text-xl);
     line-height: var(--tw-leading, var(--text-xl--line-height));
-    --tw-font-weight: var(--font-weight-bold);
-    font-weight: var(--font-weight-bold);
+    --tw-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
     color: var(--color-section-heading);
   }
   h5,	.h5 {
     font-size: var(--text-lg);
     line-height: var(--tw-leading, var(--text-lg--line-height));
-    --tw-font-weight: var(--font-weight-bold);
-    font-weight: var(--font-weight-bold);
+    --tw-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
     color: var(--color-section-heading);
   }
   h6,	.h6 {
     font-size: var(--text-md);
     line-height: var(--tw-leading, var(--text-md--line-height));
-    --tw-font-weight: var(--font-weight-bold);
-    font-weight: var(--font-weight-bold);
+    --tw-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
     color: var(--color-section-heading);
   }
   p {
@@ -711,10 +792,34 @@ html.ready .page-wrapper {
     }
   }
 }
+@property --tw-rotate-x {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-rotate-y {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-rotate-z {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-skew-x {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-skew-y {
+  syntax: "*";
+  inherits: false;
+}
 @property --tw-border-style {
   syntax: "*";
   inherits: false;
   initial-value: solid;
+}
+@property --tw-leading {
+  syntax: "*";
+  inherits: false;
 }
 @property --tw-font-weight {
   syntax: "*";
@@ -723,6 +828,11 @@ html.ready .page-wrapper {
 @property --tw-tracking {
   syntax: "*";
   inherits: false;
+}
+@property --tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
 }
 @property --tw-backdrop-blur {
   syntax: "*";
@@ -774,10 +884,6 @@ html.ready .page-wrapper {
   syntax: "*";
   inherits: false;
   initial-value: 0;
-}
-@property --tw-leading {
-  syntax: "*";
-  inherits: false;
 }
 @property --tw-duration {
   syntax: "*";
@@ -856,9 +962,16 @@ html.ready .page-wrapper {
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
+      --tw-rotate-x: initial;
+      --tw-rotate-y: initial;
+      --tw-rotate-z: initial;
+      --tw-skew-x: initial;
+      --tw-skew-y: initial;
       --tw-border-style: solid;
+      --tw-leading: initial;
       --tw-font-weight: initial;
       --tw-tracking: initial;
+      --tw-outline-style: solid;
       --tw-backdrop-blur: initial;
       --tw-backdrop-brightness: initial;
       --tw-backdrop-contrast: initial;
@@ -871,7 +984,6 @@ html.ready .page-wrapper {
       --tw-translate-x: 0;
       --tw-translate-y: 0;
       --tw-translate-z: 0;
-      --tw-leading: initial;
       --tw-duration: initial;
       --tw-shadow: 0 0 #0000;
       --tw-shadow-color: initial;

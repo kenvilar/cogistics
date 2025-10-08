@@ -62,27 +62,27 @@
 
 	h2,
 	.h2 {
-		@apply text-section-heading text-3xl font-bold;
+		@apply text-section-heading text-3xl font-semibold;
 	}
 
 	h3,
 	.h3 {
-		@apply text-section-heading text-2xl font-bold;
+		@apply text-section-heading text-2xl font-semibold;
 	}
 
 	h4,
 	.h4 {
-		@apply text-section-heading text-xl font-bold;
+		@apply text-section-heading text-xl font-semibold;
 	}
 
 	h5,
 	.h5 {
-		@apply text-section-heading text-lg font-bold;
+		@apply text-section-heading text-lg font-semibold;
 	}
 
 	h6,
 	.h6 {
-		@apply text-md text-section-heading font-bold;
+		@apply text-md text-section-heading font-semibold;
 	}
 
 	p {
