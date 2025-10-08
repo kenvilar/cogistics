@@ -10,21 +10,14 @@
     <noscript><link rel="stylesheet" href="/assets/css/fonts/fonts.css" /></noscript>
     <link rel="stylesheet" href="./assets/css/tailwindcss/output.css" />
     <link rel="stylesheet" href="./assets/css/custom.css" />
+    <script type="module">
+      import { include } from "./include.js";
+      include();
+    </script>
   </head>
   <body class="antialiased">
     <div class="page-wrapper">
-      <header class="border-b border-slate-200 bg-white/70 backdrop-blur supports-[backdrop-filter]:bg-white/60" role="banner">
-        <div class="site-padding py-[20px]">
-          <div class="mx-auto flex max-w-[1200px] items-center justify-between">
-            <a class="text-[20px] font-semibold tracking-tight text-black no-underline" href="/" aria-label="Cogistics home">cogistics</a>
-            <nav class="flex items-center gap-[12px]" aria-label="Primary">
-              <a class="hover:text-gray text-[12px] text-black" href="/">Home</a>
-              <a class="hover:text-gray text-[12px] text-black" href="/blog">Blog</a>
-              <a class="hover:text-gray text-[12px] text-black" href="/contact">Contact</a>
-            </nav>
-          </div>
-        </div>
-      </header>
+      <div data-include="@layout/header.html"></div>
 
       <main class="main-wrapper">
         <section class="section text-center">
@@ -39,12 +32,7 @@
                 services.
               </p>
               <div class="mb-[28px]"></div>
-              <a href="/contact" class="btn primary group">
-                Let's Talk
-                <span class="transition-transform group-hover:translate-x-[4px]">
-                  <img src="./assets/svg/button-arrow-right-icon.svg" alt="button arrow right icon" />
-                </span>
-              </a>
+              <div data-include="@ui/button.html"></div>
             </div>
           </div>
         </section>
@@ -72,12 +60,7 @@
                     transportation budget by catching what others miss and providing the analytics to prevent issues before they happen.
                   </p>
                   <div class="mb-[21px]"></div>
-                  <a href="/contact" class="btn primary group">
-                    Let's Talk
-                    <span class="transition-transform group-hover:translate-x-[4px]">
-                      <img src="./assets/svg/button-arrow-right-icon.svg" alt="button arrow right icon" />
-                    </span>
-                  </a>
+                  <div data-include="@ui/button.html"></div>
                 </div>
               </div>
             </div>
