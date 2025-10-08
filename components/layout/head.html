@@ -21,6 +21,11 @@
 <script>
   (function () {
     const reveal = () => {
+      // Remove any initial inline hiding in case it was set on <html>
+      try {
+        document.documentElement.style.removeProperty("visibility");
+        document.documentElement.style.removeProperty("opacity");
+      } catch (_) {}
       document.documentElement.classList.add("ready");
     };
 
@@ -42,12 +47,13 @@
             img.addEventListener("load", () => res(), { once: true });
             img.addEventListener("error", () => res(), { once: true });
           });
-        })
+        }),
       );
     };
 
     const includesReady = () =>
-      (window.__includesReady && typeof window.__includesReady.then === "function")
+      window.__includesReady &&
+      typeof window.__includesReady.then === "function"
         ? window.__includesReady
         : Promise.resolve();
 
