@@ -3,21 +3,16 @@ window.addEventListener("load", () => {
   const mobileMenuContainer = document.querySelector(".nav_menu__mobile");
   const headerContent = document.querySelector("header > div:first-child");
   const navBtn = document.querySelector(".nav__btn");
-  console.log(nav);
-  console.log(mobileMenuContainer);
 
   let navOriginalParent = headerContent;
   let isMobile = false;
 
   function handleNavPlacement() {
     const screenWidth = window.innerWidth;
-    console.log(screenWidth);
 
     if (screenWidth <= 767 && !isMobile) {
-      console.log("mobile");
       // Move nav to mobile menu
       if (nav && mobileMenuContainer) {
-        console.log("navOriginalParent");
         mobileMenuContainer.appendChild(nav);
         isMobile = true;
       }
@@ -33,32 +28,35 @@ window.addEventListener("load", () => {
     }
   }
 
-  // Toggle mobile menu visibility
-  if (navBtn && mobileMenuContainer) {
-    navBtn.addEventListener("click", () => {
-      mobileMenuContainer.classList.toggle("hidden");
-    });
-  }
+  function toggleMobileMenu() {
+    // Toggle mobile menu visibility
+    if (navBtn && mobileMenuContainer) {
+      navBtn.addEventListener("click", () => {
+        mobileMenuContainer.classList.toggle("hidden");
+      });
+    }
 
-  // Handle dropdown menu on mobile (click instead of hover)
-  const dropdownLink = document.querySelector(".nav__link");
-  const dropdownMenu = document.querySelector(".group-hover\\:block");
+    // Handle dropdown menu on mobile (click instead of hover)
+    const dropdownLink = document.querySelector(".nav__link");
+    const dropdownMenu = document.querySelector(".group-hover\\:block");
 
-  if (dropdownLink && dropdownMenu) {
-    dropdownLink.addEventListener("click", (e) => {
-      const screenWidth = window.innerWidth;
+    if (dropdownLink && dropdownMenu) {
+      dropdownLink.addEventListener("click", (e) => {
+        const screenWidth = window.innerWidth;
 
-      if (screenWidth <= 767) {
-        e.preventDefault();
-        dropdownMenu.classList.toggle("!block");
-        dropdownMenu.classList.toggle("!static");
-        dropdownMenu.classList.toggle("hidden");
-      }
-    });
+        if (screenWidth <= 767) {
+          e.preventDefault();
+          dropdownMenu.classList.toggle("!block");
+          dropdownMenu.classList.toggle("!static");
+          dropdownMenu.classList.toggle("hidden");
+        }
+      });
+    }
   }
 
   // Run on page load
   handleNavPlacement();
+  toggleMobileMenu();
 
   // Run on window resize
   window.addEventListener("resize", handleNavPlacement);
