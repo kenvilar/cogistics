@@ -51,6 +51,7 @@ window.addEventListener("load", () => {
       if (screenWidth <= 767) {
         e.preventDefault();
         dropdownMenu.classList.toggle("!block");
+        dropdownMenu.classList.toggle("!static");
         dropdownMenu.classList.toggle("hidden");
       }
     });
