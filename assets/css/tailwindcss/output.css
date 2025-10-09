@@ -291,6 +291,12 @@
   .mb-\[48px\] {
     margin-bottom: 48px;
   }
+  .\!block {
+    display: block !important;
+  }
+  .block {
+    display: block;
+  }
   .contents {
     display: contents;
   }
@@ -761,6 +767,16 @@
   .sm\:gap-\[20px\] {
     @media screen and (max-width: 767px) {
       gap: 20px;
+    }
+  }
+  .sm\:rounded-none {
+    @media screen and (max-width: 767px) {
+      border-radius: 0;
+    }
+  }
+  .sm\:bg-transparent {
+    @media screen and (max-width: 767px) {
+      background-color: transparent;
     }
   }
   .sm\:bg-white {

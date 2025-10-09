@@ -40,6 +40,22 @@ window.addEventListener("load", () => {
     });
   }
 
+  // Handle dropdown menu on mobile (click instead of hover)
+  const dropdownLink = document.querySelector(".nav__link");
+  const dropdownMenu = document.querySelector(".group-hover\\:block");
+
+  if (dropdownLink && dropdownMenu) {
+    dropdownLink.addEventListener("click", (e) => {
+      const screenWidth = window.innerWidth;
+
+      if (screenWidth <= 767) {
+        e.preventDefault();
+        dropdownMenu.classList.toggle("!block");
+        dropdownMenu.classList.toggle("hidden");
+      }
+    });
+  }
+
   // Run on page load
   handleNavPlacement();
 
