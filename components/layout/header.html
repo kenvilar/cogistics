@@ -4,15 +4,7 @@
       <a href="/" class="text-[20px] font-semibold tracking-tight text-black no-underline" aria-label="Cogistics home">
         <img src="/assets/images/logos/logo.svg" alt="logo" class="h-53" />
       </a>
-      <nav class="flex flex-row-reverse items-center gap-[45px]" aria-label="Primary">
-        <div class="nav-cta__group">
-          <a href="/contact" class="btn primary group">
-            Let's Talk
-            <span class="transition-transform group-hover:translate-x-[4px]">
-              <img src="/assets/svg/button-arrow-right-icon.svg" alt="button arrow right icon" />
-            </span>
-          </a>
-        </div>
+      <nav class="nav__container flex flex-row items-center gap-[45px] sm:hidden" aria-label="Primary">
         <div class="navlink__group">
           <ul>
             <li>
@@ -40,7 +32,21 @@
             </li>
           </ul>
         </div>
+        <div class="nav-cta__group">
+          <a href="/contact" class="btn primary group">
+            Let's Talk
+            <span class="transition-transform group-hover:translate-x-[4px]">
+              <img src="/assets/svg/button-arrow-right-icon.svg" alt="button arrow right icon" />
+            </span>
+          </a>
+        </div>
       </nav>
+      <button class="hidden size-20 cursor-pointer flex-col justify-between gap-[2px] rounded-[4px] p-0 sm:flex">
+        <span class="h-[2px] w-full rounded-[4px] bg-black"></span>
+        <span class="h-[2px] w-full rounded-[4px] bg-black"></span>
+        <span class="h-[2px] w-full rounded-[4px] bg-black"></span>
+      </button>
     </div>
   </div>
+  <div class="nav_menu__mobile absolute h-full w-full bg-red-300 p-[32px]"></div>
 </header>
