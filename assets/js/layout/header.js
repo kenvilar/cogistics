@@ -2,6 +2,7 @@ window.addEventListener("load", () => {
   const nav = document.querySelector(".nav__container");
   const mobileMenuContainer = document.querySelector(".nav_menu__mobile");
   const headerContent = document.querySelector("header > div:first-child");
+  const navBtn = document.querySelector(".nav__btn");
   console.log(nav);
   console.log(mobileMenuContainer);
 
@@ -30,6 +31,13 @@ window.addEventListener("load", () => {
         }
       }
     }
+  }
+
+  // Toggle mobile menu visibility
+  if (navBtn && mobileMenuContainer) {
+    navBtn.addEventListener("click", () => {
+      mobileMenuContainer.classList.toggle("hidden");
+    });
   }
 
   // Run on page load
