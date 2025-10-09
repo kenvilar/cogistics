@@ -49,7 +49,6 @@
     --font-roboto: "Roboto", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
     --text-md: 20px;
     --text-md--line-height: 24px;
-    --color-dev: red;
     --color-primary: #f26739;
     --color-secondary: var(--color-slate-blue);
     --color-tertiary: var(--color-lavender-mist);
@@ -726,24 +725,49 @@
       order: 2;
     }
   }
-  .sm\:block {
-    @media screen and (max-width: 767px) {
-      display: block;
-    }
-  }
   .sm\:flex {
     @media screen and (max-width: 767px) {
       display: flex;
     }
   }
-  .sm\:hidden {
+  .sm\:w-full {
     @media screen and (max-width: 767px) {
-      display: none;
+      width: 100%;
+    }
+  }
+  .sm\:min-w-full {
+    @media screen and (max-width: 767px) {
+      min-width: 100%;
     }
   }
   .sm\:flex-col {
     @media screen and (max-width: 767px) {
       flex-direction: column;
+    }
+  }
+  .sm\:items-start {
+    @media screen and (max-width: 767px) {
+      align-items: flex-start;
+    }
+  }
+  .sm\:justify-between {
+    @media screen and (max-width: 767px) {
+      justify-content: space-between;
+    }
+  }
+  .sm\:gap-\[20px\] {
+    @media screen and (max-width: 767px) {
+      gap: 20px;
+    }
+  }
+  .sm\:bg-white {
+    @media screen and (max-width: 767px) {
+      background-color: var(--color-white);
+    }
+  }
+  .sm\:p-0 {
+    @media screen and (max-width: 767px) {
+      padding: calc(var(--spacing) * 0);
     }
   }
   .sm\:py-\[20px\] {
@@ -756,9 +780,40 @@
       padding-block: 60px;
     }
   }
+  .sm\:pt-0 {
+    @media screen and (max-width: 767px) {
+      padding-top: calc(var(--spacing) * 0);
+    }
+  }
   .sm\:text-center {
     @media screen and (max-width: 767px) {
       text-align: center;
+    }
+  }
+  .sm\:font-bold {
+    @media screen and (max-width: 767px) {
+      --tw-font-weight: var(--font-weight-bold);
+      font-weight: var(--font-weight-bold);
+    }
+  }
+  .sm\:font-bold\! {
+    @media screen and (max-width: 767px) {
+      --tw-font-weight: var(--font-weight-bold) !important;
+      font-weight: var(--font-weight-bold) !important;
+    }
+  }
+  .sm\:text-black {
+    @media screen and (max-width: 767px) {
+      color: var(--color-black);
+    }
+  }
+  .sm\:group-hover\:static {
+    @media screen and (max-width: 767px) {
+      &:is(:where(.group):hover *) {
+        @media (hover: hover) {
+          position: static;
+        }
+      }
     }
   }
   .xs\:flex-col {

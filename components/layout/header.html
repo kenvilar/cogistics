@@ -4,12 +4,12 @@
       <a href="/" class="text-[20px] font-semibold tracking-tight text-black no-underline" aria-label="Cogistics home">
         <img src="/assets/images/logos/logo.svg" alt="logo" class="h-53" />
       </a>
-      <nav class="nav__container flex flex-row items-center gap-[45px] sm:hidden" aria-label="Primary">
-        <div class="navlink__group">
+      <nav class="nav__container flex flex-row items-center gap-[45px] sm:flex-col sm:items-start sm:gap-[20px]" aria-label="Primary">
+        <div class="navlink__group sm:w-full">
           <ul>
             <li>
               <div class="group relative">
-                <a class="nav__link group-hover:underline active:font-bold">
+                <a class="nav__link active:font-bold sm:flex sm:justify-between sm:font-bold!">
                   <span>RESOURCE HUB</span>
                   <div class="transition-transform duration-700 group-hover:rotate-180">
                     <svg xmlns="http://www.w3.org/2000/svg" width="10" height="7" viewBox="0 0 10 7" fill="none">
@@ -18,13 +18,13 @@
                   </div>
                 </a>
 
-                <div class="absolute z-10 hidden pt-20 group-hover:block">
-                  <div class="rounded-[10px] bg-[#CB6800] text-white">
-                    <div class="dropdown-menu relative min-w-[140px] p-15">
+                <div class="absolute z-10 hidden pt-20 group-hover:block sm:group-hover:static">
+                  <div class="rounded-[10px] bg-[#CB6800] text-white sm:bg-white sm:text-black">
+                    <div class="dropdown-menu relative min-w-[140px] p-15 sm:min-w-full sm:p-0">
                       <ul>
                         <li><a href="/blog" class="nav__link__sub">Blog</a></li>
                       </ul>
-                      <div class="absolute -top-6 left-[50%] size-12 translate-x-[-50%] rotate-45 bg-[#CB6800]"></div>
+                      <div class="absolute -top-6 left-[50%] size-12 translate-x-[-50%] rotate-45 bg-[#CB6800] sm:bg-white"></div>
                     </div>
                   </div>
                 </div>
@@ -48,5 +48,5 @@
       </button>
     </div>
   </div>
-  <div class="nav_menu__mobile absolute h-full w-full bg-red-300 p-[32px]"></div>
+  <div class="nav_menu__mobile relative h-full w-full p-[32px]"></div>
 </header>
