@@ -298,8 +298,14 @@
   .mb-\[48px\] {
     margin-bottom: 48px;
   }
+  .mb-\[50px\] {
+    margin-bottom: 50px;
+  }
   .\!block {
     display: block !important;
+  }
+  .block {
+    display: block;
   }
   .contents {
     display: contents;
@@ -315,6 +321,9 @@
   }
   .inline {
     display: inline;
+  }
+  .table {
+    display: table;
   }
   .size-12 {
     width: calc(var(--spacing) * 12);
@@ -423,6 +432,9 @@
   .flex-1 {
     flex: 1;
   }
+  .border-collapse {
+    border-collapse: collapse;
+  }
   .translate-x-\[-50\%\] {
     --tw-translate-x: -50%;
     translate: var(--tw-translate-x) var(--tw-translate-y);
@@ -478,6 +490,9 @@
   .gap-\[2px\] {
     gap: 2px;
   }
+  .gap-\[8px\] {
+    gap: 8px;
+  }
   .gap-\[15px\] {
     gap: 15px;
   }
@@ -507,6 +522,10 @@
   }
   .rounded-full {
     border-radius: calc(infinity * 1px);
+  }
+  .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
   }
   .border-4 {
     border-style: var(--tw-border-style);
@@ -597,6 +616,9 @@
   .pt-8 {
     padding-top: calc(var(--spacing) * 8);
   }
+  .pt-19 {
+    padding-top: calc(var(--spacing) * 19);
+  }
   .pt-20 {
     padding-top: calc(var(--spacing) * 20);
   }
@@ -605,6 +627,9 @@
   }
   .pt-80 {
     padding-top: calc(var(--spacing) * 80);
+  }
+  .pt-\[19px\] {
+    padding-top: 19px;
   }
   .pb-11 {
     padding-bottom: calc(var(--spacing) * 11);
@@ -615,6 +640,9 @@
   .pb-31 {
     padding-bottom: calc(var(--spacing) * 31);
   }
+  .pb-\[13px\] {
+    padding-bottom: 13px;
+  }
   .pb-\[100px\] {
     padding-bottom: 100px;
   }
@@ -623,6 +651,10 @@
   }
   .font-primary {
     font-family: var(--font-primary);
+  }
+  .text-md {
+    font-size: var(--text-md);
+    line-height: var(--tw-leading, var(--text-md--line-height));
   }
   .text-xl {
     font-size: var(--text-xl);
@@ -641,6 +673,10 @@
   .leading-\[100\%\] {
     --tw-leading: 100%;
     line-height: 100%;
+  }
+  .font-bold {
+    --tw-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
   }
   .font-semibold {
     --tw-font-weight: var(--font-weight-semibold);
@@ -683,6 +719,9 @@
   .no-underline {
     text-decoration-line: none;
   }
+  .underline {
+    text-decoration-line: underline;
+  }
   .antialiased {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -694,8 +733,16 @@
     --tw-shadow: 0 4px 24px 0 var(--tw-shadow-color, rgba(66,62,175,0.16));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
+  .outline {
+    outline-style: var(--tw-outline-style);
+    outline-width: 1px;
+  }
   .backdrop-blur {
     --tw-backdrop-blur: blur(8px);
+    -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
+    backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
+  }
+  .backdrop-filter {
     -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
     backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
   }
@@ -1174,6 +1221,11 @@
   inherits: false;
   initial-value: 0 0 #0000;
 }
+@property --tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
 @property --tw-backdrop-blur {
   syntax: "*";
   inherits: false;
@@ -1248,6 +1300,7 @@
       --tw-ring-offset-width: 0px;
       --tw-ring-offset-color: #fff;
       --tw-ring-offset-shadow: 0 0 #0000;
+      --tw-outline-style: solid;
       --tw-backdrop-blur: initial;
       --tw-backdrop-brightness: initial;
       --tw-backdrop-contrast: initial;
