@@ -5,10 +5,8 @@
   :root, :host {
     --font-sans: "Inter", sans-serif;
     --font-mono: "Fira Code", monospace;
-    --color-red-300: oklch(80.8% 0.114 19.571);
     --color-blue-50: oklch(97% 0.014 254.604);
     --color-blue-200: oklch(88.2% 0.059 254.128);
-    --color-blue-300: oklch(80.9% 0.105 251.813);
     --color-blue-500: oklch(62.3% 0.214 259.815);
     --color-blue-600: oklch(54.6% 0.245 262.881);
     --color-slate-200: oklch(92.9% 0.013 255.508);
@@ -429,9 +427,6 @@
   .min-w-\[140px\] {
     min-width: 140px;
   }
-  .flex-1 {
-    flex: 1;
-  }
   .border-collapse {
     border-collapse: collapse;
   }
@@ -496,9 +491,6 @@
   .gap-\[15px\] {
     gap: 15px;
   }
-  .gap-\[18px\] {
-    gap: 18px;
-  }
   .gap-\[20px\] {
     gap: 20px;
   }
@@ -549,12 +541,6 @@
   }
   .bg-black {
     background-color: var(--color-black);
-  }
-  .bg-blue-300 {
-    background-color: var(--color-blue-300);
-  }
-  .bg-red-300 {
-    background-color: var(--color-red-300);
   }
   .bg-tertiary {
     background-color: var(--color-tertiary);
@@ -613,12 +599,6 @@
   .py-\[100px\] {
     padding-block: 100px;
   }
-  .pt-8 {
-    padding-top: calc(var(--spacing) * 8);
-  }
-  .pt-19 {
-    padding-top: calc(var(--spacing) * 19);
-  }
   .pt-20 {
     padding-top: calc(var(--spacing) * 20);
   }
@@ -630,9 +610,6 @@
   }
   .pt-\[19px\] {
     padding-top: 19px;
-  }
-  .pb-11 {
-    padding-bottom: calc(var(--spacing) * 11);
   }
   .pb-30 {
     padding-bottom: calc(var(--spacing) * 30);
@@ -828,6 +805,11 @@
   .sm\:w-full {
     @media screen and (max-width: 767px) {
       width: 100%;
+    }
+  }
+  .sm\:max-w-full {
+    @media screen and (max-width: 767px) {
+      max-width: 100%;
     }
   }
   .sm\:min-w-full {
@@ -1092,6 +1074,9 @@
       flex-direction: column;
       justify-content: space-between;
       gap: 15px;
+      @media screen and (max-width: 767px) {
+        max-width: 100%;
+      }
       .card-body--content {
         display: flex;
         flex: 1;

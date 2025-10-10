@@ -147,9 +147,20 @@
 	.card-body {
 		@apply pt-[27px] px-[21px] pb-[44px] flex flex-1 flex-col;
 		.card-body--wrapper {
-			@apply flex max-w-[498px] flex-col justify-between gap-[15px] flex flex-1 flex-col;
+			display: flex;
+			max-width: 498px;
+			flex: 1;
+			flex-direction: column;
+			justify-content: space-between;
+			gap: 15px;
+			@media screen and (max-width: 767px) {
+				max-width: 100%;
+			}
 			.card-body--content {
-				@apply flex flex-col gap-[15px] flex-1;
+				display: flex;
+				flex: 1;
+				flex-direction: column;
+				gap: 15px;
 			}
 			.card-body--btn {
 				@apply flex;
