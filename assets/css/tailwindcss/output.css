@@ -318,6 +318,9 @@
   .\!block {
     display: block !important;
   }
+  .block {
+    display: block;
+  }
   .contents {
     display: contents;
   }
