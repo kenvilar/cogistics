@@ -8,7 +8,7 @@
     "http-server": "npx http-server -p 3000",
     "live-dev": "npx live-server --port=3000",
     "tailwind": "npx @tailwindcss/cli -i ./assets/css/tailwindcss/input.css -o ./assets/css/tailwindcss/output.css --watch",
-    "dev": "npm run live-dev & npm run tailwind"
+    "dev": "npm run http-server & npm run tailwind"
   },
   "private": true,
   "devDependencies": {
