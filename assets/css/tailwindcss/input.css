@@ -143,13 +143,13 @@
 }
 /*Cards*/
 .card {
-	@apply rounded-[10px] bg-white overflow-hidden;
+	@apply rounded-[10px] bg-white overflow-hidden flex flex-col;
 	.card-body {
-		@apply pt-[27px] px-[21px] pb-[44px];
+		@apply pt-[27px] px-[21px] pb-[44px] flex flex-1 flex-col;
 		.card-body--wrapper {
-			@apply flex max-w-[498px] flex-col justify-between gap-[15px] bg-red-300;
+			@apply flex max-w-[498px] flex-col justify-between gap-[15px] flex flex-1 flex-col;
 			.card-body--content {
-				@apply flex flex-col gap-[15px];
+				@apply flex flex-col gap-[15px] flex-1;
 			}
 			.card-body--btn {
 				@apply flex;
