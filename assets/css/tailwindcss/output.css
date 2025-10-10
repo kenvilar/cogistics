@@ -490,6 +490,12 @@
   .gap-\[45px\] {
     gap: 45px;
   }
+  .gap-x-\[18px\] {
+    column-gap: 18px;
+  }
+  .gap-y-\[20px\] {
+    row-gap: 20px;
+  }
   .overflow-hidden {
     overflow: hidden;
   }
