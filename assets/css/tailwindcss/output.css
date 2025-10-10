@@ -285,6 +285,9 @@
   .mb-22 {
     margin-bottom: calc(var(--spacing) * 22);
   }
+  .mb-23 {
+    margin-bottom: calc(var(--spacing) * 23);
+  }
   .mb-27 {
     margin-bottom: calc(var(--spacing) * 27);
   }

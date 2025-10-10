@@ -1,167 +1,468 @@
-# Cogistics
+# Cogistics Website
 
-A minimal static site starter that uses Tailwind CSS from the CDN and a zero‑build, client‑side include system for reusable components and layouts.
+> Using Data Intelligence to Cut Costs and Recover Lost Dollars in Freight Spend
 
-This repo is ideal when you want HTML pages with partials/components, without a bundler or build step. Everything runs in the browser via a tiny include helper.
+A modern, static website for Cogistics - a freight audit and payment services company. Built with vanilla HTML, Tailwind CSS, and JavaScript, featuring a component-based architecture with a custom HTML include system.
 
-## Highlights
-- No build step: open index.html or serve statically.
-- Reusable components and layouts with data-include.
-- Parameterized templates using {{ key | Default }} tokens.
-- Handy path aliases like @ui/, @layout/, @forms/.
-- Tailwind CSS via CDN, plus a custom CSS layer in assets/css.
+## 🚀 Features
 
-## Quick start
-You can simply open the HTML files in a browser, or use a static server for clean routing and CORS-friendly fetches.
+- **Static Site Architecture** - Fast, lightweight, and easy to deploy
+- **Component-Based Structure** - Reusable HTML components using custom include system
+- **Tailwind CSS 4** - Utility-first CSS framework (CLI build)
+- **Responsive Design** - Mobile-first approach with custom breakpoints
+- **Asset Caching** - Optimized caching configuration for images, CSS, and JavaScript
+- **Version Control** - Cache-busting with query string versioning (`?v=1.0.0`)
+- **Custom Fonts** - Barlow Semi Condensed and Roboto
+- **Mobile Navigation** - Dynamic mobile menu with JavaScript
+- **Form Integration** - Contact form with Formspree integration
+- **Carousel Slider** - Splide.js integration for featured content
 
-- Option A: open directly
-  - Double-click index.html.
+## 📁 Project Structure
 
-- Option B: serve with a simple static server (recommended)
-  - Using the provided scripts:
-    - npm run dev — starts http-server on http://localhost:3000
-    - npm run live-dev — starts live-server on http://localhost:3000 with live reload
+```
+cogistics/
+├── index.html              # Homepage
+├── blog/
+│   └── index.html         # Blog listing page
+├── contact/
+│   └── index.html         # Contact page with form
+├── components/
+│   ├── layout/
+│   │   ├── header.html    # Site header with navigation
+│   │   └── footer.html    # Site footer
+│   ├── sections/          # Page sections
+│   ├── forms/             # Form components
+│   ├── ui/                # UI components
+│   ├── modals/            # Modal dialogs
+│   └── partials/          # Partial components
+├── assets/
+│   ├── css/
+│   │   ├── tailwindcss/
+│   │   │   ├── input.css  # Tailwind source
+│   │   │   └── output.css # Compiled Tailwind
+│   │   ├── custom.css     # Custom styles
+│   │   ├── layout/        # Layout-specific styles
+│   │   ├── components/    # Component styles
+│   │   ├── pages/         # Page-specific styles
+│   │   ├── fonts/         # Font definitions
+│   │   └── vendor/        # Third-party CSS (Splide)
+│   ├── js/
+│   │   ├── layout/
+│   │   │   └── header.js  # Header/navigation logic
+│   │   ├── components/    # Component scripts
+│   │   ├── utils/         # Utility functions
+│   │   ├── pages/         # Page-specific scripts
+│   │   └── vendor/        # Third-party JS (Splide)
+│   ├── images/
+│   │   ├── home/          # Homepage images
+│   │   ├── blog/          # Blog images
+│   │   ├── contact/       # Contact page images
+│   │   ├── logos/         # Brand logos
+│   │   └── placeholders/  # Placeholder images
+│   ├── svg/               # SVG icons
+│   ├── icons/             # Icon files
+│   ├── fonts/
+│   │   ├── barlow-semi-condensed/
+│   │   └── roboto/
+│   └── media/
+│       ├── video/
+│       ├── audio/
+│       └── docs/
+├── dev/
+│   └── docs/              # Development documentation
+├── include.js             # Custom HTML include system
+├── .htaccess              # Apache caching configuration
+├── _headers               # Netlify/Cloudflare caching config
+├── valet-nginx.conf       # Nginx caching configuration
+├── CACHING.md             # Caching setup documentation
+└── package.json           # Project dependencies
 
-Note: The scripts use npx so you don’t need to install the servers globally.
-
-## How the include system works
-The include helper lives at include.js and is imported on each page with a type="module" script. It finds elements that declare data-include and replaces them with the referenced component/layout, applying template parameters along the way.
-
-Example usage on a page:
-
-```html
-<script type="module">
-  import { include } from "./include.js";
-  include();
-</script>
-
-<!-- Include the <head> partial with page-specific metadata -->
-<template
-  data-include="@layout/head.html"
-  data-include-params='{
-    "title": "Home | Cogistics",
-    "metaTitle": "Homepage",
-    "metaDescription": "This is the homepage."
-  }'
-></template>
-
-<!-- Include a button component with parameters -->
-<div
-  data-include="@ui/button.html"
-  data-include-params='{
-    "text": "Click me",
-    "href": "/contact",
-    "className": "tertiary"
-  }'
-></div>
 ```
 
-### Path aliases
-Use these shortcuts in data-include:
+## 🛠️ Tech Stack
 
-- @components/ → components/
-- @layout/ → components/layout/
-- @ui/ → components/ui/
-- @sections/ → components/sections/
-- @partials/ → components/partials/
-- @forms/ → components/forms/
-- @modals/ → components/modals/
+- **HTML5** - Semantic markup
+- **Tailwind CSS 4** - Utility-first CSS framework (CLI build)
+- **Vanilla JavaScript** - ES modules, no framework dependencies
+- **Splide.js** - Carousel/slider library
+- **Formspree** - Form handling service
+- **Finsweet Attributes** - Mirror click functionality for custom carousel controls
 
-You can also use relative paths (e.g., ../components/ui/button.html) or absolute URLs.
+## 📋 Prerequisites
 
-### Passing parameters
-Parameters can be provided in three ways (later ones win):
+- Node.js 16+ and npm
+- Web server (Apache, Nginx, or Valet for local development)
 
-1) Query string on the include path:
+## 🚦 Getting Started
 
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd cogistics
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+### Development
+
+**Option 1: Development with Tailwind watch mode (recommended)**
+```bash
+npm run dev
+```
+This runs both the HTTP server (port 3000) and Tailwind in watch mode.
+
+**Option 2: HTTP Server only**
+```bash
+npm run http-server
+```
+Opens at `http://localhost:3000`
+
+**Option 3: Live Server with auto-reload**
+```bash
+npm run live-dev
+```
+Opens at `http://localhost:3000` with live reload
+
+**Tailwind CSS only (watch mode)**
+```bash
+npm run tailwind
+```
+
+### Access the site
+Open your browser and navigate to:
+- `http://localhost:3000` (for npm scripts)
+- `http://cogistics.test` (if using Laravel Valet)
+
+## 🎨 Component System
+
+This project uses a custom HTML include system (`include.js`) that allows you to break down HTML into reusable components.
+
+### Usage
+
+Include components in your HTML:
+
+```html
+<div data-include="@layout/header.html"></div>
+<div data-include="@layout/footer.html"></div>
+```
+
+The `@` symbol refers to predefined path aliases:
+- `@components/` → `components/`
+- `@layout/` → `components/layout/`
+- `@ui/` → `components/ui/`
+- `@sections/` → `components/sections/`
+- `@forms/` → `components/forms/`
+- `@partials/` → `components/partials/`
+- `@modals/` → `components/modals/`
+
+### How it works
+
+1. Add the include script to your HTML:
+   ```html
+   <script type="module">
+     import { include } from "/include.js?v=1.0.0";
+     include();
+   </script>
+   ```
+
+2. Use `data-include` attribute to reference components
+3. Components are loaded and rendered on page load
+
+### Passing Parameters
+
+Parameters can be provided in three ways:
+
+**1. Query string:**
 ```html
 <div data-include="@ui/button.html?text=Buy&href=%23"></div>
 ```
 
-2) JSON object via data-include-params (supports trailing commas and // comments):
-
+**2. JSON object via `data-include-params`:**
 ```html
 <div
   data-include="@ui/button.html"
   data-include-params='{
-    // Visible label
     "text": "Buy now",
-    /* Optional href */
-    "href": "/checkout",
+    "href": "/checkout"
   }'
 ></div>
 ```
 
-3) Individual data-include-<key> attributes:
-
+**3. Individual `data-include-*` attributes:**
 ```html
-<div data-include="@ui/button.html" data-include-text="Download" data-include-className="primary"></div>
+<div
+  data-include="@ui/button.html"
+  data-include-text="Download"
+  data-include-className="primary"
+></div>
 ```
 
-### Templating tokens
-Inside components/partials, insert values with double curly braces. You may specify a default after a pipe:
+### Templating Tokens
+
+Inside components, insert values with double curly braces with optional defaults:
 
 ```html
-<a href="{{ href | # }}" class="btn {{ className | primary }}">{{ text | Button }}</a>
+<a href="{{ href | # }}" class="btn {{ className | primary }}">
+  {{ text | Button }}
+</a>
 ```
 
-The include engine resolves keys case-insensitively and HTML-escapes inserted content.
+## 📱 Responsive Design
 
-### Script execution in includes
-If an included fragment contains <script> tags, include.js recreates them so browsers execute the scripts when the fragment is inserted.
+The site uses a mobile-first approach with Tailwind's responsive prefixes:
 
-## Styling
-- Tailwind CSS is loaded via the official browser build CDN:
-  - See components/layout/head.html for the <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.14"> include.
-- A small theme setup is defined with @theme and custom variants directly in the head partial.
-- Custom site styles live in assets/css/custom.css, plus optional page-level styles in assets/css/pages/.
+- `sm:` - 640px and up (small screens)
+- `md:` - 768px and up (medium screens)
+- `lg:` - 1024px and up (large screens)
+- `xl:` - 1280px and up (extra large screens)
 
-Note: A Tailwind config (tailwind.config.js) is present for when/if you switch to a CLI build; the current setup doesn’t require it because classes are processed in the browser.
+### Mobile Navigation
 
-## Project structure
-High-level layout of the repository:
+The mobile navigation system (`assets/js/layout/header.js`) handles:
+- Dynamic nav movement to mobile menu container on screens ≤767px
+- Toggle mobile menu visibility
+- Click-to-expand dropdowns on mobile (hover on desktop)
 
-- index.html — Home page.
-- blog/index.html — Blog landing page.
-- contact/index.html — Contact page.
-- include.js — Client-side include engine with alias + templating support.
-- components/
-  - layout/
-    - head.html — Shared <head> partial (metadata, Tailwind CDN, CSS links).
-    - header.html — Top navigation.
-    - footer.html — Footer (if used on pages).
-  - ui/
-    - button.html — Reusable button/link component.
-  - forms/
-    - contact-form.html — Contact form fragment used on contact page.
-  - partials/ — Place for small partials like logos, etc.
-  - sections/, modals/ — Reserved folders; alias support exists even if empty.
-- assets/css/
-  - custom.css — Custom global styles.
-  - pages/ — Optional page-specific styles (blog.css, contact.css).
-- dev/docs/
-  - index.html — Small docs hub.
-  - buttons.html — Component examples.
-- prettier.config.js — Prettier (with Tailwind plugin) formatting settings.
-- package.json — Dev helper scripts and formatting dependencies.
+**Features:**
+- Moves navigation to `.nav_menu__mobile` on mobile screens
+- Toggle button (`.nav__btn`) shows/hides mobile menu
+- Dropdown menus use click instead of hover on mobile
+- Smart initialization that runs whether DOM is loaded or loading
 
-## Development tips
-- Formatting: Prettier with the Tailwind plugin is included. Run:
-  - npx prettier . --write
-- Creating new pages:
-  - Create a folder (e.g., about/) with an index.html.
-  - Import include.js via a module script using the correct relative path.
-  - Pull in @layout/head.html and any components you need with data-include.
-- Creating new components:
-  - Add an HTML file under components/… (ui/, layout/, sections/, etc.).
-  - Use {{ key | Default }} tokens for parameters.
-  - Reference it via an alias (e.g., @ui/your-comp.html).
+## 🎯 Key Features Implementation
 
-## Deployment
-This is a static site. Host the folder with any static host (Netlify, Vercel static, GitHub Pages, S3/CloudFront, Nginx, etc.). Ensure the root (/) serves index.html and nested routes (e.g., /blog, /contact) map to their corresponding index.html files.
+### Asset Caching & Versioning
 
-## Browser support
-Requires modern browsers that support ES modules and fetch. All evergreen browsers are supported.
+Static assets use query string versioning for cache busting:
+```html
+<link rel="stylesheet" href="/assets/css/custom.css?v=1.0.0" />
+<script src="/assets/js/layout/header.js?v=1.0.0"></script>
+<img src="/assets/images/logo.svg?v=1.0.0" />
+```
 
-## License
-No explicit license file is included. Add one if you plan to open-source the project.
+**Cache durations:**
+- Images, CSS, JS, Fonts: 1 year (immutable)
+- HTML files: No cache (always fresh)
+
+See `CACHING.md` for detailed caching configuration instructions.
+
+### Contact Form
+
+The contact form (`contact/index.html`) integrates with Formspree:
+- Client-side validation with HTML5 `required` attributes
+- 2-column grid layout (responsive)
+- Custom styled checkboxes
+- Success/error message styling with color-coded backgrounds
+- Async form submission without page reload
+
+**Form fields:**
+- First Name, Last Name
+- Phone, Email
+- Company Name, Job Title
+- Best way to Contact You (dropdown)
+- How Can We Help You? (textarea)
+- How Did You Hear About Us? (textarea)
+- Terms & Conditions checkbox
+
+### Blog Carousel
+
+Featured blog posts use Splide.js with custom controls:
+- Custom arrow buttons using Finsweet mirror click attributes
+- Responsive layout (horizontal on desktop, vertical on mobile)
+- Loop mode enabled
+- Single item per page
+
+**Configuration:**
+```javascript
+{
+  type: "loop",
+  rewind: true,
+  perPage: 1,
+  perMove: 1,
+  arrows: true,
+  pagination: false,
+  updateOnMove: true
+}
+```
+
+## 🎨 Styling
+
+### Custom CSS Variables
+
+Defined in `assets/css/tailwindcss/input.css`:
+```css
+--font-barlow-semi-condensed
+--font-roboto
+--color-primary
+--color-secondary
+--color-tertiary
+--text-base
+```
+
+### Utility Classes
+
+Custom spacing scale using 1px base unit:
+```html
+<div class="mb-23">  <!-- margin-bottom: 23px -->
+<div class="pt-80">  <!-- padding-top: 80px -->
+<div class="gap-[45px]"> <!-- gap: 45px -->
+```
+
+### Custom Breakpoints
+
+```css
+sm: 640px   /* Small devices */
+md: 768px   /* Medium devices */
+lg: 1024px  /* Large devices */
+xl: 1280px  /* Extra large devices */
+```
+
+### Layout Classes
+
+- `.site-padding` - Standard horizontal padding
+- `.site-max-width` - Maximum content width (1200px)
+- `.header-max-width` - Header content width
+
+## 🚀 Deployment
+
+### For Apache Servers
+
+The `.htaccess` file is included and will automatically configure:
+- Asset caching (1 year for static files)
+- GZIP compression
+- Proper cache-control headers
+
+### For Nginx (Production)
+
+Add the contents of `valet-nginx.conf` to your server block configuration:
+
+```nginx
+server {
+    # ... your existing configuration ...
+
+    include /path/to/cogistics/valet-nginx.conf;
+}
+```
+
+Then reload:
+```bash
+sudo nginx -t
+sudo systemctl reload nginx
+```
+
+### For Netlify / Cloudflare Pages
+
+The `_headers` file is included for automatic cache header configuration. No additional setup needed.
+
+### For Laravel Valet (Local)
+
+```bash
+cp valet-nginx.conf ~/.config/valet/Nginx/cogistics.conf
+valet restart
+```
+
+## 📦 Build & Optimization
+
+### Compile Tailwind CSS
+
+**Production build (minified):**
+```bash
+npx @tailwindcss/cli -i ./assets/css/tailwindcss/input.css -o ./assets/css/tailwindcss/output.css --minify
+```
+
+**Development build (with watch):**
+```bash
+npm run tailwind
+```
+
+### Update Version Numbers
+
+When deploying, update version numbers in HTML files:
+```html
+<!-- Update from ?v=1.0.0 to ?v=1.0.1 -->
+<link rel="stylesheet" href="/assets/css/custom.css?v=1.0.1" />
+```
+
+## 🔧 Configuration Files
+
+| File | Purpose |
+|------|---------|
+| `tailwind.config.js` | Tailwind CSS configuration |
+| `prettier.config.js` | Code formatting rules |
+| `package.json` | Project metadata and scripts |
+| `.gitignore` | Git ignore patterns |
+| `.htaccess` | Apache caching rules |
+| `_headers` | Netlify/Cloudflare caching |
+| `valet-nginx.conf` | Nginx caching configuration |
+
+## 📝 Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Run HTTP server + Tailwind watch mode |
+| `npm run http-server` | Start HTTP server on port 3000 |
+| `npm run live-dev` | Start live-server with auto-reload |
+| `npm run tailwind` | Watch and compile Tailwind CSS |
+
+## 🌐 Pages
+
+- **/** - Homepage with hero, feature sections, and CTAs
+- **/blog** - Blog listing with featured carousel and grid layout
+- **/contact** - Contact form with validation
+
+## 🔍 SEO & Meta
+
+Each page includes optimized meta tags:
+- Page-specific titles and descriptions
+- Open Graph tags (ready to be added)
+- Semantic HTML structure
+- Proper heading hierarchy
+
+## 🌐 Browser Support
+
+- Modern browsers (Chrome, Firefox, Safari, Edge)
+- Mobile browsers (iOS Safari, Chrome Mobile)
+- Requires ES modules support
+- Graceful degradation for older browsers
+
+## 🤝 Development Tips
+
+### Creating New Pages
+
+1. Create a folder (e.g., `about/`) with an `index.html`
+2. Import `include.js` via module script
+3. Use `data-include` to pull in header/footer
+4. Add page-specific styles if needed
+
+### Creating New Components
+
+1. Add HTML file under `components/` subdirectory
+2. Use `{{ key | Default }}` tokens for parameters
+3. Reference via alias (e.g., `@ui/your-comp.html`)
+
+### Code Formatting
+
+```bash
+npx prettier . --write
+```
+
+## 📄 License
+
+[Specify your license here]
+
+## 🤝 Contributing
+
+[Specify contribution guidelines if applicable]
+
+## 📧 Contact
+
+For questions or support regarding this website, visit the [contact page](/contact) or reach out through the contact form.
+
+---
+
+**Built with ❤️ for Cogistics - Freight Audit & Payment Services**
