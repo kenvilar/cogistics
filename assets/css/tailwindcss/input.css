@@ -51,6 +51,11 @@
 @custom-variant sm (@media screen and (max-width: 767px));
 @custom-variant xs (@media screen and (max-width: 479px));
 @layer base {
+	html {
+		scroll-behavior: smooth;
+		overscroll-behavior: contain;
+		scroll-snap-type: y mandatory;
+	}
 	body {
 		@apply font-primary text-text;
 	}
