@@ -141,3 +141,19 @@
 .btn.tertiary {
 	@apply border-blue-200 bg-transparent text-blue-600 hover:bg-blue-50;
 }
+/*Cards*/
+.card {
+	@apply rounded-[10px] bg-white overflow-hidden;
+	.card-body {
+		@apply pt-[27px] px-[21px] pb-[44px];
+		.card-body--wrapper {
+			@apply flex max-w-[498px] flex-col justify-between gap-[15px] bg-red-300;
+			.card-body--content {
+				@apply flex flex-col gap-[15px];
+			}
+			.card-body--btn {
+				@apply flex;
+			}
+		}
+	}
+}
