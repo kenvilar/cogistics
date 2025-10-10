@@ -890,6 +890,11 @@
       height: 318px;
     }
   }
+  .sm\:h-full {
+    @media screen and (max-width: 767px) {
+      height: 100%;
+    }
+  }
   .sm\:w-full {
     @media screen and (max-width: 767px) {
       width: 100%;
