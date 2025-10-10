@@ -875,6 +875,11 @@
       order: 2;
     }
   }
+  .sm\:mt-0 {
+    @media screen and (max-width: 767px) {
+      margin-top: calc(var(--spacing) * 0);
+    }
+  }
   .sm\:flex {
     @media screen and (max-width: 767px) {
       display: flex;
