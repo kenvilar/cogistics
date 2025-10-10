@@ -16,6 +16,8 @@
       import { include } from "/include.js";
       include();
     </script>
+
+    <link rel="stylesheet" href="/assets/css/vendor/splide.min.css" />
   </head>
   <body class="antialiased">
     <div class="page-wrapper">
@@ -39,11 +41,106 @@
         </section>
         <section class="section">
           <div class="site-padding py-80 sm:py-[60px]">
-            <div class="site-max-width bg-tertiary overflow-hidden rounded-[10px]">ok</div>
+            <div class="site-max-width bg-tertiary overflow-hidden rounded-[10px] px-[20px] py-[32px]">
+              <div class="max-w-[1024px]">
+                <div class="splide" role="group" aria-label="Splide Basic HTML Example">
+                  <div class="splide__track">
+                    <ul class="splide__list">
+                      <li class="splide__slide">
+                        <div class="flex justify-between gap-[20px]">
+                          <div class="max-w-[552px] overflow-hidden rounded-[10px]"><img src="/assets/images/blog/featured-image.webp" alt="" /></div>
+                          <div class="flex max-w-[428px] flex-col gap-[15px]">
+                            <div class="text-text">
+                              Posted on
+                              <span class="text-section-heading">September 10, 2025</span>
+                              by
+                              <span class="text-primary">Jack Hoxie</span>
+                            </div>
+                            <h2 class="font-primary text-xl">Next Flight Out (NFO): COGISTICS Transportation’s Solution for Urgent Expedited Freight Shipments</h2>
+                            <p>Next flight out (aka NFO) is an expedited freight service that works exactly as it sounds, guaranteeing shipment on the</p>
+                            <div class="flex">
+                              <a href="/contact" class="btn primary group">
+                                Let's Talk
+                                <span class="transition-transform group-hover:translate-x-[4px]">
+                                  <img src="/assets/svg/button-arrow-right-icon.svg" alt="button arrow right icon" />
+                                </span>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="splide__slide">
+                        <div class="flex justify-between gap-[20px]">
+                          <div class="max-w-[552px] overflow-hidden rounded-[10px]"><img src="/assets/images/blog/featured-image.webp" alt="" /></div>
+                          <div class="flex max-w-[428px] flex-col gap-[15px]">
+                            <div class="text-text">
+                              Posted on
+                              <span class="text-section-heading">September 10, 2025</span>
+                              by
+                              <span class="text-primary">Jack Hoxie</span>
+                            </div>
+                            <h2 class="font-primary text-xl">Next Flight Out (NFO): COGISTICS Transportation’s Solution for Urgent Expedited Freight Shipments</h2>
+                            <p>Next flight out (aka NFO) is an expedited freight service that works exactly as it sounds, guaranteeing shipment on the</p>
+                            <div class="flex">
+                              <a href="/contact" class="btn primary group">
+                                Let's Talk
+                                <span class="transition-transform group-hover:translate-x-[4px]">
+                                  <img src="/assets/svg/button-arrow-right-icon.svg" alt="button arrow right icon" />
+                                </span>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="splide__slide">
+                        <div class="flex justify-between gap-[20px]">
+                          <div class="max-w-[552px] overflow-hidden rounded-[10px]"><img src="/assets/images/blog/featured-image.webp" alt="" /></div>
+                          <div class="flex max-w-[428px] flex-col gap-[15px]">
+                            <div class="text-text">
+                              Posted on
+                              <span class="text-section-heading">September 10, 2025</span>
+                              by
+                              <span class="text-primary">Jack Hoxie</span>
+                            </div>
+                            <h2 class="font-primary text-xl">Next Flight Out (NFO): COGISTICS Transportation’s Solution for Urgent Expedited Freight Shipments</h2>
+                            <p>Next flight out (aka NFO) is an expedited freight service that works exactly as it sounds, guaranteeing shipment on the</p>
+                            <div class="flex">
+                              <a href="/contact" class="btn primary group">
+                                Let's Talk
+                                <span class="transition-transform group-hover:translate-x-[4px]">
+                                  <img src="/assets/svg/button-arrow-right-icon.svg" alt="button arrow right icon" />
+                                </span>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
         <div data-include="@layout/footer.html"></div>
+
+        <script src="/assets/js/vendor/splide.min.js"></script>
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            var options = {
+              type: "loop",
+              rewind: true,
+              perPage: 1,
+              perMove: 1,
+              arrows: true,
+              pagination: false,
+              updateOnMove: true,
+            };
+            var splide = new Splide(".splide", options);
+            splide.mount();
+          });
+        </script>
       </main>
     </div>
   </body>
