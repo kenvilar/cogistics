@@ -43,7 +43,143 @@
               <div class="bg-secondary pt-[26px] pb-[20px]">
                 <h1 class="h3 text-center text-white">Request a call</h1>
               </div>
-              <div class="px-[43px] pt-[68px] pb-[50px]"></div>
+              <div class="px-[43px] pt-[68px] pb-[50px]">
+                <form id="my-form" action="https://formspree.io/f/xldppjgq" method="POST">
+                  <div class="grid grid-cols-2 gap-x-[14px] gap-y-[24px] sm:flex sm:flex-col">
+                    <label>
+                      <span class="label">First Name</span>
+                      <input type="text" name="firstname" required />
+                    </label>
+                    <label>
+                      <span class="label">Last Name</span>
+                      <input type="text" name="lastname" required />
+                    </label>
+                    <label>
+                      <span class="label">Phone</span>
+                      <input type="text" name="phone" required />
+                    </label>
+                    <label>
+                      <span class="label">Email</span>
+                      <input type="email" name="email" required />
+                    </label>
+                    <label>
+                      <span class="label">Company Name</span>
+                      <input type="text" name="company_name" required />
+                    </label>
+                    <label>
+                      <span class="label">Job Title</span>
+                      <input type="text" name="job_title" required />
+                    </label>
+                    <label>
+                      <span class="label">Best way to Contact You</span>
+                      <select name="best_way_to_contact_you" required>
+                        <option value="" disabled selected></option>
+                        <option value="option 1">Option 1</option>
+                      </select>
+                    </label>
+                    <label>
+                      <span class="label">How Can We Help You?</span>
+                      <textarea name="how_can_we_help_you" cols="30" rows="10" required></textarea>
+                    </label>
+                    <label class="col-span-2">
+                      <span class="label">How Did You Hear About Us?</span>
+                      <textarea name="how_did_you_hear_about_us" cols="30" rows="10" required></textarea>
+                    </label>
+                    <label class="flex items-center gap-[10px] align-middle">
+                      <input type="checkbox" name="terms_agreement" required />
+                      <span class="label text-text! mb-0! text-[14px]! font-normal!">I agree to the Terms & Conditions and Privacy Policy.</span>
+                    </label>
+                  </div>
+                  <div class="mb-[34px]"></div>
+                  <div class="flex">
+                    <button id="my-form-button" class="btn primary min-w-[210px]">Submit</button>
+                  </div>
+                  <p id="my-form-status"></p>
+                </form>
+
+                <style>
+                  label {
+                    width: 100%;
+                  }
+                  label span.label {
+                    font-family: var(--font-barlow-semi-condensed);
+                    font-weight: var(--font-weight-semibold);
+                    font-size: 16px;
+                    line-height: 100%;
+                    display: block;
+                    margin-bottom: 12px;
+                    color: var(--color-section-heading);
+                  }
+                  input:not([type="checkbox"]),
+                  textarea,
+                  select {
+                    appearance: none; /* removes default OS style */
+                    -webkit-appearance: none; /* Safari */
+                    border-radius: 5px;
+                    background: #fff;
+                    font-size: var(--text-base);
+                    line-height: var(--text-base--line-height);
+                    height: 57px;
+                    width: 100%;
+                    padding: 8px 12px;
+                    outline: none !important;
+                  }
+                  select {
+                    appearance: auto;
+                    -webkit-appearance: auto;
+                  }
+                  input[type="checkbox"] {
+                    appearance: none; /* removes default OS style */
+                    -webkit-appearance: none; /* Safari */
+                    border-radius: 5px;
+                    background: #fff;
+                    width: 23px;
+                    height: 23px;
+                    border-width: 0;
+                    border-color: transparent;
+                    outline: none !important;
+                  }
+                  input[type="checkbox"]:checked {
+                    background: var(--color-secondary);
+                  }
+                </style>
+
+                <!-- Place this script at the end of the body tag -->
+                <script>
+                  var form = document.getElementById("my-form");
+
+                  async function handleSubmit(event) {
+                    event.preventDefault();
+                    var status = document.getElementById("my-form-status");
+                    var data = new FormData(event.target);
+                    fetch(event.target.action, {
+                      method: form.method,
+                      body: data,
+                      headers: {
+                        Accept: "application/json",
+                      },
+                    })
+                      .then((response) => {
+                        if (response.ok) {
+                          status.innerHTML = "Thanks for your submission!";
+                          form.reset();
+                        } else {
+                          response.json().then((data) => {
+                            if (Object.hasOwn(data, "errors")) {
+                              status.innerHTML = data["errors"].map((error) => error["message"]).join(", ");
+                            } else {
+                              status.innerHTML = "Oops! There was a problem submitting your form";
+                            }
+                          });
+                        }
+                      })
+                      .catch((error) => {
+                        status.innerHTML = "Oops! There was a problem submitting your form";
+                      });
+                  }
+                  form.addEventListener("submit", handleSubmit);
+                </script>
+              </div>
             </div>
           </div>
         </section>

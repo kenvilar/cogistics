@@ -125,6 +125,7 @@
 .btn {
 	transition-property: background-color, color, box-shadow, transform;
 	@apply font-primary text-md inline-flex items-center justify-center gap-[10px] rounded-[40px] border px-[32px] py-[16px] text-center leading-[normal] font-bold no-underline duration-150;
+	cursor: pointer;
 }
 .btn:focus {
 	@apply ring-2 ring-blue-500/35 outline-none;
