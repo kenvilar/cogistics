@@ -1025,6 +1025,9 @@
   p,	small,	span,	li,	label,	input,	textarea {
     font-family: var(--font-secondary);
   }
+  a, button {
+    outline: none !important;
+  }
 }
 .page-wrapper {
   position: relative;
@@ -1082,6 +1085,7 @@
   text-decoration-line: none;
   --tw-duration: 150ms;
   transition-duration: 150ms;
+  outline: none !important;
   cursor: pointer;
 }
 .btn:focus {
